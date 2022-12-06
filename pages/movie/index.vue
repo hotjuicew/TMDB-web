@@ -1,6 +1,6 @@
 <template>
   <main>
-    <h1>主页</h1>
+    <h1>movie</h1>
     <HeroShow></HeroShow>
     <ListLine></ListLine>
   </main>

@@ -1,6 +1,6 @@
 <template>
   <main>
-    <h1>主页</h1>
+    <h1>tv</h1>
     <HeroShow></HeroShow>
     <ListLine></ListLine>
   </main>
@@ -13,7 +13,6 @@ export default {
   components: {
     ListLine,
     HeroShow
-
   },
   data() {
     return {
