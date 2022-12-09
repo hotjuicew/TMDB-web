@@ -18,7 +18,7 @@ export default {
   css: ["@/assets/css/global.scss"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ["~/plugins/lazyload.js",],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -37,10 +37,33 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
+    // axios 在发送请求时，将使用相对 URL。
     baseURL: '/',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  loaders: {
+    cssModules: {
+      camelCase: true,// CSS 模块中的类名会被转换为驼峰命名法
+      localIdentName: "[local]_[hash:base64:5]",// CSS 模块中类名的命名方式
+    },
+  },
+  env: {
+    FRONTEND_URL: process.env.FRONTEND_URL || "",
+    API_KEY: process.env.API_KEY || "",
+    API_LANG: process.env.API_LANG || "en-US",
+    API_COUNTRY: process.env.API_COUNTRY || "GB",
+    API_YOUTUBE_KEY: process.env.API_YOUTUBE_KEY || "",
+    GA: process.env.GA || "",
+  },
+
+  // 加载指示器的颜色
+  loading: {
+    color: "#2196f3",
+  },
+    dev:{
+    errorOverlay:true
+  },
+  ssr: false
 }
