@@ -18,7 +18,7 @@ export default {
   css: ["@/assets/css/global.scss"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["~/plugins/lazyload.js",],
+  plugins: ["~/plugins/lazyload.js", "~/plugins/filters.js",],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

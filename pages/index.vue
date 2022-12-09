@@ -1,17 +1,23 @@
 <template>
   <main>
     <HeroShow :item="featured"></HeroShow>
-    <ListLine></ListLine>
+    <ListingCarousel
+      v-if="trendingMovies && trendingMovies.results.length"
+      :title="trendingMoviesTitle"
+      :view-all-url="trendingMoviesUrl"
+      :items="trendingMovies"
+    >
+    </ListingCarousel>
   </main>
 </template>
 <script>
 import HeroShow from "~/components/global/HeroShow.vue";
-import ListLine from "~/components/global/ListLine.vue";
+import ListingCarousel from "~/components/global/ListingCarousel.vue";
 import { getTrending, getMovie, getTvShow, getListItem } from '~/api';
 
 export default {
   components: {
-    ListLine,
+    ListingCarousel,
     HeroShow
   },
 
