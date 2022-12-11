@@ -6,8 +6,17 @@
       :title="trendingMoviesTitle"
       :view-all-url="trendingMoviesUrl"
       :items="trendingMovies"
-    >
-    </ListingCarousel>
+    />
+    <ListingCarousel
+      v-if="trendingTv && trendingTv.results.length"
+      :title="trendingTvTitle"
+      :view-all-url="trendingTvUrl"
+      :items="trendingTv" />
+    <ListingCarousel
+      v-if="trendingPerson && trendingPerson.results.length"
+      :title="trendingPersonTitle"
+      :view-all-url="trendingPersonUrl"
+      :items="trendingPerson" />
   </main>
 </template>
 <script>
@@ -25,6 +34,8 @@ export default {
     try {
       const trendingMovies = await getTrending('movie');
       const trendingTv = await getTrending('tv');
+      // eslint-disable-next-line no-unused-vars
+      const trendingPerson = await getTrending('person');
       let featured;
 
       // feature a random item from movies or tv
@@ -37,7 +48,7 @@ export default {
       } else {
         featured = await getTvShow(randomItem.id);
       }
-      return { trendingMovies, trendingTv, featured };
+      return { trendingMovies, trendingTv, trendingPerson,featured };
     } catch {
       error({ statusCode: 504, message: 'Data not available' });
     }
@@ -57,6 +68,12 @@ export default {
 
     trendingTvUrl () {
       return { name: 'tv-category-name', params: { name: 'trending' } };
+    },
+    trendingPersonTitle () {
+      return getListItem('person', 'trending').title;
+    },
+    trendingPersonUrl () {
+      return { name: 'person-category-name', params: { name: 'trending' } };
     },
   },
 

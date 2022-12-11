@@ -28,6 +28,10 @@ const lists = {
     { title: 'Currently Airing TV Shows', query: 'on_the_air' },
     { title: 'TV Shows Airing Today', query: 'airing_today' },
   ],
+  person:[
+    { title: 'Trending people', query: 'trending' },
+    { title: 'Popular people', query: 'popular' },
+  ]
 };
 
 /**
@@ -231,6 +235,8 @@ export function getListItem (type, query) {
     return lists.movie.find(list => list.query === query);
   } else if (type === 'tv') {
     return lists.tv.find(list => list.query === query);
+  }else if (type === 'person') {
+    return lists.person.find(list => list.query === query);
   }
 };
 
@@ -455,7 +461,26 @@ export function getGenreList (media) {
 };
 
 /**
- * 获取人物
+ * Get people popular(listing)
+ */
+export function getPeoplePopular (page = 1) {
+  return new Promise((resolve, reject) => {
+    axios.get(`${apiUrl}/person/popular`, {
+      params: {
+        api_key: process.env.API_KEY,
+        language: process.env.API_LANG,
+        page,
+      },
+    }).then((response) => {
+      resolve(response.data);
+    })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+/**
+ * get person(by id)
  */
 export function getPerson (id) {
   return new Promise((resolve, reject) => {
