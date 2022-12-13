@@ -299,7 +299,7 @@ export default {
   width: 8.5rem;
   height: 1.4rem;
   margin-right: 1rem;
-  background-image: url('~assets/images/stars.png');
+  background-image: url('~assets/images/stars-red.png');
   background-repeat: no-repeat;
   background-size: auto 100%;
 
@@ -310,7 +310,7 @@ export default {
 
   > div {
     height: 100%;
-    background-image: url('~assets/images/stars-filled.png');
+    background-image: url('~assets/images/stars-filled-red.png');
     background-repeat: no-repeat;
     background-size: auto 100%;
   }

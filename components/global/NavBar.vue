@@ -3,6 +3,7 @@
     <ul class="list">
       <li>
         <nuxt-link
+          exact
           :to="{ name: 'index' }"
         >
           <svg t="1670584035422" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -150,7 +151,8 @@ a.nuxt-link-active {
     opacity: 1;
   }
 
-  svg {
+  svg path{
+    color: blue;
     fill: $primary-color;
   }
 }
