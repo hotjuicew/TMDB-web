@@ -9,7 +9,7 @@ Vue.filter('rating', function (number) {
     return `${number.toString()}.0`;
   }
 
-  return number.toString();
+  return number.toString().substring(0,3);
 });
 
 /**

@@ -1,5 +1,6 @@
 <template>
   <main>
+    <HeadNav></HeadNav>
     <HeroShow :item="featured"></HeroShow>
     <ListingCarousel
       v-if="trendingMovies && trendingMovies.results.length"
@@ -23,9 +24,11 @@
 import HeroShow from "~/components/global/HeroShow.vue";
 import ListingCarousel from "~/components/global/ListingCarousel.vue";
 import { getTrending, getMovie, getTvShow, getListItem } from '~/api';
+import HeadNav from "~/components/global/HeadNav.vue";
 
 export default {
   components: {
+    HeadNav,
     ListingCarousel,
     HeroShow
   },

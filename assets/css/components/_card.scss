@@ -82,13 +82,13 @@
 .card__stars {
   width: 7.3rem;
   height: 1.2rem;
-  background-image: url('~assets/images/stars.png');
+  background-image: url('~assets/images/stars-red.png');
   background-repeat: no-repeat;
   background-size: auto 100%;
 
   > div {
     height: 100%;
-    background-image: url('~assets/images/stars-filled.png');
+    background-image: url('~assets/images/stars-filled-red.png');
     background-repeat: no-repeat;
     background-size: auto 100%;
   }
