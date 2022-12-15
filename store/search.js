@@ -1,6 +1,12 @@
 export const state = () => ({
   searchOpen: false,
   fromPage: '/',
+  placeholders:{
+    index:'Search for a movie, tv show or person...',
+    tv:'Search for a tv show...',
+    movie:'Search for a movie...',
+    person:'Search for a person...',
+  }
 });
 
 export const mutations = {

@@ -14,8 +14,8 @@
           v-model.trim="query"
           name="search"
           type="text"
-          placeholder="Search for a movie, tv show or person..."
-          @keyup="goToRoute"
+          :placeholder=placeholder
+          @keyup.enter="goToRoute"
           @blur="unFocus">
 
         <button
@@ -40,7 +40,12 @@ export default {
       query: this.$route.query.q ? this.$route.query.q : '',
     };
   },
-
+props:{
+  placeholder: {
+    type: String,
+    default: "Search for a movie, tv show or person..."
+  },
+},
   computed: {
     showButton () {
       return this.$route.name === 'search';
