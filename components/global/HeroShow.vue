@@ -86,6 +86,7 @@
 <!--      :data="trailer"-->
 <!--      type="iframe"-->
 <!--      @close="closeModal" />-->
+    <div :class="$style.hook"></div>
   </div>
 </template>
 
@@ -148,7 +149,8 @@ export default {
   justify-content: space-between;
   height: 35rem;
   color: #999;
-  background-color: #000;
+  //background-color: #000;
+  background-color: $base-bg;
 
   @media (min-width: $breakpoint-xsmall) {
     height: 50rem;
@@ -185,10 +187,10 @@ export default {
     left: 0;
     display: block;
     content: '';
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 100%);
+    background-image: linear-gradient(to top, rgba(24, 24, 24, 1) 0%, rgba(24, 24, 24, 0.1) 50%, rgba(24, 24, 24, 0.1) 100%);
 
     @media (min-width: $breakpoint-medium) {
-      background-image: linear-gradient(to right, #000 0, transparent 50%, transparent 100%);
+      background-image: linear-gradient(to right, #181818 0, transparent 50%, transparent 100%);
     }
   }
 
@@ -351,6 +353,14 @@ export default {
     font-size: 0.9vw;
   }
 }
+.hook{
+  margin-top: 5rem;
+  background: linear-gradient(90deg,#777 0,rgba(51,51,51,.5) 50%,#777);
+  height: 1px;
+}
+//.outer{
+//  margin-top: $head-nav;//为顶部的搜索栏留位置
+//}
 </style>
 
 <style lang="scss">

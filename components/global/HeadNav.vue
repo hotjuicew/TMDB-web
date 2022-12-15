@@ -1,5 +1,5 @@
 <template>
- <div class=""></div>
+   <div :class="$style.nav"></div>
 </template>
 <script>
 
@@ -15,7 +15,11 @@ export default {
 <style lang="scss" module>
 @import "assets/css/utilities/_variables.scss";
 .nav{
-
-  background-color: $primary-color;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 20;
+  height: $head-nav;
+  background-color: #000000;
 }
 </style>

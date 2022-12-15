@@ -57,24 +57,37 @@
         </nuxt-link>
       </li>
       <li>
-        <button>
-          <svg t="1670584125285" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
-               p-id="2835" width="32" height="32">
-            <path
-              d="M743.232 210.837333c144.896 144.896 149.781333 376.789333 14.656 527.573334l160.32 160.298666a8.533333 8.533333 0 0 1 0 12.074667l-33.173333 33.173333a8.533333 8.533333 0 0 1-12.074667 0l-161.557333-161.557333c-150.762667 120.746667-371.477333 111.253333-511.232-28.501333-149.973333-149.973333-149.973333-393.109333 0-543.061334 149.973333-149.973333 393.088-149.973333 543.061333 0z m-497.813333 45.248c-124.970667 124.970667-124.970667 327.594667 0 452.565334 124.970667 124.949333 327.594667 124.949333 452.565333 0 124.949333-124.970667 124.949333-327.594667 0-452.565334-124.970667-124.970667-327.594667-124.970667-452.565333 0z"
-              fill="#fff" p-id="2836"></path>
-          </svg>
+        <button
+          class="search-toggle"
+          type="button"
+          aria-label="Search"
+          aria-haspopup="true"
+          :aria-expanded="`${searchOpen}`"
+          @click="toggleSearch">
+          <!-- eslint-disable-next-line -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-miterlimit="10"><path d="M16.4 16.7l6.3 6.5"/><ellipse cx="10.5" cy="9.8" rx="9.2" ry="9.1"/></g></svg>
         </button>
       </li>
     </ul>
   </nav>
 </template>
 <script>
+import {mapState} from 'vuex'
 export default {
-  data() {
-    return {};
+  computed: {
+    ...mapState('search', [
+      'searchOpen',
+    ]),
   },
-  methods: {}
+
+  methods: {
+    toggleSearch () {
+      if (this.$route.name !== 'search') {
+        console.log('点击');
+        this.$store.commit('search/toggleSearch');
+      }
+    },
+  },
 
 };
 </script>
@@ -89,7 +102,8 @@ export default {
   left: 0;
   z-index: 5;
   height: 4.5rem;
-  background-color: #000;
+  //background-color: #000;
+  background-color: $base-bg;
 
   @media (min-width: $breakpoint-large) {
     top: 0;

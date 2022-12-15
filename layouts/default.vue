@@ -1,26 +1,29 @@
 <template>
   <div>
+    <transition name="slidedown">
+      <SearchForm v-if="searchOpen" />
+    </transition>
    <NavBar></NavBar>
    <nuxt/>
   </div>
 </template>
 <script>
-import NavBar from "~/components/global/NavBar.vue";
+import { mapState } from 'vuex';
+import SearchForm from '~/components/search/SearchForm';
+import NavBar from '~/components/global/NavBar';
 
 export default {
   components: {
-    NavBar
-  },
-  data() {
-    return {
-
-    }
-  },
-  methods: {
-
+    SearchForm,
+    NavBar,
   },
 
-}
+  computed: {
+    ...mapState('search', [
+      'searchOpen',
+    ]),
+  },
+};
 </script>
 
 
