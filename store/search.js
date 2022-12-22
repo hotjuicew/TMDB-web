@@ -6,7 +6,8 @@ export const state = () => ({
     tv:'Search for a tv show...',
     movie:'Search for a movie...',
     person:'Search for a person...',
-  }
+  },
+  searchType:'index',
 });
 
 export const mutations = {
@@ -25,5 +26,8 @@ export const mutations = {
   setFromPage (state, page) {
     state.fromPage = page;
   },
+  setSearchType(state,searchType){
+    state.searchType=searchType
+  }
 };
 

@@ -14,7 +14,7 @@
           v-model.trim="query"
           name="search"
           type="text"
-          :placeholder=placeholder
+          :placeholder=content
           @keyup.enter="goToRoute"
           @blur="unFocus">
 
@@ -40,33 +40,47 @@ export default {
       query: this.$route.query.q ? this.$route.query.q : '',
     };
   },
-props:{
-  placeholder: {
-    type: String,
-    default: "Search for a movie, tv show or person..."
-  },
-},
   computed: {
     showButton () {
       return this.$route.name === 'search';
     },
 
     ...mapState('search', [
-      'fromPage',
+      'fromPage','placeholders'
     ]),
+    content(){
+      console.log(this.$route.name,'this.$route.name');
+      switch (this.$route.name){
+        case 'index': return this.placeholders.index
+        case 'tv': return this.placeholders.tv
+        case 'movie': return this.placeholders.movie
+        case 'person': return this.placeholders.person
+        default :return this.placeholders.index
+      }
+    },
   },
 
   mounted () {
     this.$refs.input.focus();
+    this.$store.commit('search/setSearchType', this.$route.name);// 标定当前页面
   },
 
   methods: {
     goToRoute () {
       if (this.query) {
-        this.$router.push({
-          name: 'search',
-          query: { q: this.query },
-        });
+        console.log( this.$route.path,'当前路由');
+        if (this.$route.path.toString().endsWith('search')){
+          this.$router.push({
+            query: { q: this.query },
+          });
+        }else {
+          this.$router.push({
+            path: this.$route.path+'/search',
+            query: { q: this.query },
+          });
+        }
+
+
       } else {
         this.$router.push({
           path: this.fromPage,
@@ -76,7 +90,6 @@ props:{
 
     goBack () {
       this.query = '';
-
       this.$router.push({
         path: this.fromPage,
       });

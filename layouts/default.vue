@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name="slidedown">
-      <SearchForm v-if="searchOpen" :placeholder='content'/>
+      <SearchForm v-if="searchOpen"/>
     </transition>
    <NavBar></NavBar>
    <nuxt/>
@@ -21,17 +21,9 @@ export default {
 
   computed: {
     ...mapState('search', [
-      'searchOpen','placeholders'
+      'searchOpen'
     ]),
-    content(){
-      switch (this.$route.name){
-        case 'index': return this.placeholders.index
-        case 'tv': return this.placeholders.tv
-        case 'movie': return this.placeholders.movie
-        case 'person': return this.placeholders.person
-        default :return this.placeholders.index
-      }
-    }
+
   },
 };
 </script>

@@ -504,7 +504,7 @@ export function getPerson (id) {
 /**
  * 搜索（返回结果为电影、电视、人物）
  */
-export function search (query, page = 1) {
+export function searchMulti (query, page = 1) {
   return new Promise((resolve, reject) => {
     axios.get(`${apiUrl}/search/multi`, {
       params: {
@@ -521,7 +521,57 @@ export function search (query, page = 1) {
       });
   });
 };
-
+export function searchMovie (query, page = 1) {
+  return new Promise((resolve, reject) => {
+    axios.get(`${apiUrl}/search/movie`, {
+      params: {
+        api_key: process.env.API_KEY,
+        language: process.env.API_LANG,
+        query,
+        page,
+      },
+    }).then((response) => {
+      resolve(response.data);
+    })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+export function searchTv (query, page = 1) {
+  return new Promise((resolve, reject) => {
+    axios.get(`${apiUrl}/search/tv`, {
+      params: {
+        api_key: process.env.API_KEY,
+        language: process.env.API_LANG,
+        query,
+        page,
+      },
+    }).then((response) => {
+      resolve(response.data);
+    })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+export function searchPerson (query, page = 1) {
+  return new Promise((resolve, reject) => {
+    axios.get(`${apiUrl}/search/person`, {
+      params: {
+        api_key: process.env.API_KEY,
+        language: process.env.API_LANG,
+        query,
+        page,
+      },
+    }).then((response) => {
+      resolve(response.data);
+    })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
 /**
  * 获取YouTube信息
  */

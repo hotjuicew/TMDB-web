@@ -13,6 +13,30 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
+  router: {
+    routes: [
+      {
+        name: 'search',
+        path: '/search',
+        component: 'pages/search/index.vue'
+      },
+      {
+        name: 'tvSearch',
+        path: '/tv/search',
+        component: 'pages/tv/search/index.vue'
+      },
+      {
+        name: 'movieSearch',
+        path: '/movie/search',
+        component: 'pages/movie/search/index.vue'
+      },
+      {
+        name: 'personSearch',
+        path: '/person/search',
+        component: 'pages/person/search/index.vue'
+      },
+    ]
+  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ["@/assets/css/global.scss"],
