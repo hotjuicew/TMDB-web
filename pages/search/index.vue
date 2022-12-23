@@ -1,11 +1,32 @@
 <template>
-  <main className="main">
-    <SearchResults
-      v-if="items"
-      :title="title"
-      :items="items"
-      :loading="loading"
-      @loadMore="loadMore" />
+  <main class="main">
+    <MediaNav
+      :menu="menu"
+      @clicked="navClicked" />
+    <template v-if="activeMenu === 'movie'">
+      <SearchResults
+        v-if="movieItems"
+        :title="title"
+        :items="movieItems"
+        :loading="loading"
+        @loadMore="loadMoreMovie" />
+    </template>
+    <template v-if="activeMenu === 'tv'">
+      <SearchResults
+        v-if="tvItems"
+        :title="title"
+        :items="tvItems"
+        :loading="loading"
+        @loadMore="loadMoreTv" />
+    </template>
+    <template v-if="activeMenu === 'person'">
+      <SearchResults
+        v-if="personItems"
+        :title="title"
+        :items="personItems"
+        :loading="loading"
+        @loadMore="loadMorePerson" />
+    </template>
   </main>
 </template>
 
@@ -37,8 +58,10 @@ export default {
   async asyncData({ query, error, redirect }) {
     try {
       if (query.q) {
-        const items = await searchMulti(query.q, 1);
-        return { items };
+        const movieItems = await searchMovie(query.q, 1);
+        const tvItems = await searchTv(query.q, 1);
+        const personItems = await searchPerson(query.q, 1);
+        return { movieItems,tvItems,personItems };
       } else {
         redirect('/');
       }
@@ -49,6 +72,8 @@ export default {
   data() {
     return {
       loading: false,
+      activeMenu: 'movie',
+      menu:[]
     };
   },
 
@@ -75,7 +100,9 @@ export default {
   },
 
 
-
+  created() {
+    this.createMenu();
+  },
   mounted() {
     this.$store.commit('search/openSearch');
     this.$store.commit('search/setFromPage', fromPage);
@@ -84,6 +111,19 @@ export default {
 
 
   methods: {
+    navClicked (label) {
+      this.activeMenu = label;
+    },
+    createMenu () {
+      const menu = [];
+      if (this.movieItems) menu.push('Movies');
+
+      if (this.tvItems) menu.push('TVs');
+
+      if (this.personItems) menu.push('People');
+
+      this.menu = menu;
+    },
     async getResults() {
       // if no search query
       if (!this.query.length) {
@@ -92,22 +132,41 @@ export default {
       }
 
       // trigger ajax call;
-      const data = await searchMulti(this.query);
+      const movieData = await searchMulti(this.query);
 
       // if no results, do nothing
-      if (!data.total_results) {
+      if (!movieData.total_results) {
         this.items = null;
         return;
       }
 
       // update the items
-      this.items = data;
+      this.items = movieData;
     },
 
-    loadMore() {
+    loadMoreMovie() {
       this.loading = true;
-
-      searchMulti(this.query, this.items.page + 1).then((response) => {
+      searchMovie(this.query, this.items.page + 1).then((response) => {
+        this.items.results = this.items.results.concat(response.results);
+        this.items.page = response.page;
+        this.loading = false;
+      }).catch(() => {
+        this.loading = false;
+      });
+    },
+    loadMoreTv() {
+      this.loading = true;
+      searchTv(this.query, this.items.page + 1).then((response) => {
+        this.items.results = this.items.results.concat(response.results);
+        this.items.page = response.page;
+        this.loading = false;
+      }).catch(() => {
+        this.loading = false;
+      });
+    },
+    loadMorePerson() {
+      this.loading = true;
+      searchPerson(this.query, this.items.page + 1).then((response) => {
         this.items.results = this.items.results.concat(response.results);
         this.items.page = response.page;
         this.loading = false;
@@ -119,10 +178,10 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '/assets/css/utilities/_variables.scss';
 
-.page-search .main {
+.main {
   padding-top: 6rem;
 
   @media (min-width: $breakpoint-large) {
