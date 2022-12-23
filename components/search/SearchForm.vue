@@ -49,12 +49,11 @@ export default {
       'fromPage','placeholders'
     ]),
     content(){
-      console.log(this.$route.name,'this.$route.name');
       switch (this.$route.name){
-        case 'index': return this.placeholders.index
-        case 'tv': return this.placeholders.tv
-        case 'movie': return this.placeholders.movie
-        case 'person': return this.placeholders.person
+        case 'index': case 'index-search': return this.placeholders.index
+        case 'tv':case 'tv-search': return this.placeholders.tv
+        case 'movie': case 'movie-search':return this.placeholders.movie
+        case 'person': case 'person-search':return this.placeholders.person
         default :return this.placeholders.index
       }
     },
@@ -68,9 +67,13 @@ export default {
   methods: {
     goToRoute () {
       if (this.query) {
-        console.log( this.$route.path,'当前路由');
         if (this.$route.path.toString().endsWith('search')){
           this.$router.push({
+            query: { q: this.query },
+          });
+        }else if(this.$route.path==='index'){
+          this.$router.push({
+            name: 'search',
             query: { q: this.query },
           });
         }else {

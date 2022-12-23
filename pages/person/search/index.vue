@@ -13,13 +13,40 @@
 // eslint-disable-next-line no-unused-vars
 import {  searchMulti,searchTv,searchMovie,searchPerson } from "~/api";
 import SearchResults from '~/components/search/SearchResults';
-let fromPage = '/';
+const fromPage = '/person';
 
 export default {
   components: {
     SearchResults,
   },
 
+  beforeRouteUpdate (to, from, next) {
+    next();
+    this.getResults();
+  },
+
+  beforeRouteLeave (to, from, next) {
+    const search = document.getElementById('search');
+
+    next();
+
+    if (search && search.value.length) {
+      this.$store.commit('search/closeSearch');
+    }
+  },
+
+  async asyncData ({ query, error, redirect }) {
+    try {
+      if (query.q) {
+        const items = await searchPerson(query.q, 1)
+        return { items };
+      } else {
+        redirect('/');
+      }
+    } catch {
+      error({ message: 'Page not found' });
+    }
+  },
   data () {
     return {
       loading: false,
@@ -49,49 +76,12 @@ export default {
     },
   },
 
-  async asyncData ({ route,query, error, redirect }) {
-    try {
-      if (query.q) {
-        let items='index-search'
-        switch (route.name) {
-          case'index-search': items = await searchMulti(query.q, 1);break;
-          case 'tv-search': items = await searchTv(query.q, 1);break;
-          case 'movie-search': items = await searchMovie(query.q, 1);break;
-          case 'person-search': items = await searchPerson(query.q, 1);break;
-        }
-        return { items };
-      } else {
-        redirect('/');
-      }
-    } catch {
-      error({ message: 'Page not found' });
-    }
-  },
 
   mounted () {
     this.$store.commit('search/openSearch');
     this.$store.commit('search/setFromPage', fromPage);
   },
 
-  beforeRouteEnter (to, from, next) {
-    fromPage = from.path;
-    next();
-  },
-
-  beforeRouteUpdate (to, from, next) {
-    next();
-    this.getResults();
-  },
-
-  beforeRouteLeave (to, from, next) {
-    const search = document.getElementById('search');
-
-    next();
-
-    if (search && search.value.length) {
-      this.$store.commit('search/closeSearch');
-    }
-  },
 
   methods: {
     async getResults () {

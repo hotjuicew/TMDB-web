@@ -89,5 +89,6 @@ export default {
     dev:{
     errorOverlay:true
   },
-  ssr: false
+  ssr: false,
+
 }
