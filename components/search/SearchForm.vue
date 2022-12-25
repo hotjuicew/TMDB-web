@@ -71,7 +71,7 @@ export default {
           this.$router.push({
             query: { q: this.query },
           });
-        }else if(this.$route.path==='index'){
+        }else if(this.$route.path==='/'){
           this.$router.push({
             name: 'search',
             query: { q: this.query },

@@ -3,26 +3,23 @@
     <MediaNav
       :menu="menu"
       @clicked="navClicked" />
-    <template v-if="activeMenu === 'movie'">
+    <template v-if="activeMenu === 'movies'">
       <SearchResults
         v-if="movieItems"
-        :title="title"
         :items="movieItems"
         :loading="loading"
         @loadMore="loadMoreMovie" />
     </template>
-    <template v-if="activeMenu === 'tv'">
+    <template v-if="activeMenu === 'tvs'">
       <SearchResults
         v-if="tvItems"
-        :title="title"
         :items="tvItems"
         :loading="loading"
         @loadMore="loadMoreTv" />
     </template>
-    <template v-if="activeMenu === 'person'">
+    <template v-if="activeMenu === 'people'">
       <SearchResults
         v-if="personItems"
-        :title="title"
         :items="personItems"
         :loading="loading"
         @loadMore="loadMorePerson" />
@@ -33,7 +30,7 @@
 <script>
 // eslint-disable-next-line no-unused-vars
 import { searchMulti, searchTv, searchMovie, searchPerson } from "~/api";
-import SearchResults from '~/components/search/SearchResults';
+import SearchResults from '~/components/search/SearchResults.vue';
 
 const fromPage = '/';
 
@@ -72,7 +69,7 @@ export default {
   data() {
     return {
       loading: false,
-      activeMenu: 'movie',
+      activeMenu: 'movies',
       menu:[]
     };
   },
@@ -94,9 +91,6 @@ export default {
       return this.$route.query.q ? this.$route.query.q : '';
     },
 
-    title() {
-      return this.query ? `Results For: ${this.query}` : '';
-    },
   },
 
 
@@ -113,6 +107,7 @@ export default {
   methods: {
     navClicked (label) {
       this.activeMenu = label;
+      console.log(label,'lab');
     },
     createMenu () {
       const menu = [];
@@ -179,7 +174,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '/assets/css/utilities/_variables.scss';
+@import '../../assets/css/utilities/variables';
 
 .main {
   padding-top: 6rem;
