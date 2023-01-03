@@ -21,7 +21,7 @@
           name="hero">
           <div>
             <h1 :class="$style.name">
-              <nuxt-link :to="{ name: `${type}-id`, params: { id: item.id } }">
+              <nuxt-link :to="{ name: `person-id`, params: { id: item.id } }">
                 {{ name }}
               </nuxt-link>
             </h1>
@@ -71,12 +71,6 @@ export default {
       isSingle: this.item.id === this.$route.params.id,
       modalVisible: false,
     };
-  },
-
-  computed: {
-    type () {
-      return this.item.title ? 'movie' : 'tv';
-    },
   },
 
   methods: {

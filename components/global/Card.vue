@@ -70,7 +70,11 @@ export default {
     media () {
       if (this.item.media_type) {
         return this.item.media_type;
-      } else if (this.item.name) {
+      }
+      else if(this.item.gender){
+        return 'person';
+      }
+      else if (this.item.name) {
         return 'tv';
       } else {
         return 'movie';
