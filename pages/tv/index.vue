@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import { getTvShows, getTvShow, getListItem } from '~/api';
 import ListingCarousel from '~/components/global/ListingCarousel.vue';
 import HeroShow from "~/components/global/HeroShow.vue";
@@ -63,8 +64,12 @@ export default {
   },
 
   computed: {
+    ...mapState({
+      language: state => state.language
+    }),
     popularTitle() {
-      return getListItem('tv', 'popular').title;
+      if (this.language==='zh') return getListItem('tv', 'popular').title.zh
+      else return getListItem('tv', 'popular').title.us
     },
 
     popularUrl() {
@@ -72,7 +77,8 @@ export default {
     },
 
     topRatedTitle() {
-      return getListItem('tv', 'top_rated').title;
+      if (this.language==='zh')return getListItem('tv', 'top_rated').title.zh
+      else return getListItem('tv', 'top_rated').title.us
     },
 
     topRatedUrl() {
@@ -80,7 +86,8 @@ export default {
     },
 
     onAirTitle() {
-      return getListItem('tv', 'on_the_air').title;
+      if (this.language==='zh') return getListItem('tv', 'on_the_air').title.zh
+      else return getListItem('tv', 'on_the_air').title.us
     },
 
     onAirUrl() {
@@ -88,7 +95,8 @@ export default {
     },
 
     airingTodayTitle() {
-      return getListItem('tv', 'airing_today').title;
+      if (this.language==='zh') return getListItem('tv', 'airing_today').title.zh
+      else return getListItem('tv', 'airing_today').title.us
     },
 
     airingTodayUrl() {

@@ -10,27 +10,28 @@ const apiUrl = 'https://api.themoviedb.org/3';
  */
 export const apiImgUrl = 'https://image.tmdb.org/t/p';
 
+
 /**
  * Different types of lists
  */
 const lists = {
   movie: [
-    { title: 'Trending Movies', query: 'trending' },
-    { title: 'Popular Movies', query: 'popular' },
-    { title: 'Top Rated Movies', query: 'top_rated' },
-    { title: 'Upcoming Movies', query: 'upcoming' },
-    { title: 'Now Playing Movies', query: 'now_playing' },
+    { title: {us:"Trending Movies",zh:'趋势电影'}, query: "trending" },
+    { title: {us:"Popular Movies",zh:'流行电影'}, query: "popular" },
+    { title: {us:"Top Rated Movies",zh:'高分电影'}, query: "top_rated" },
+    { title: {us:"Upcoming Movies",zh:'即将上映'}, query: "upcoming" },
+    { title: {us:"Now Playing Movies",zh:'影院热映'}, query: "now_playing" }
   ],
   tv: [
-    { title: 'Trending TV Shows', query: 'trending' },
-    { title: 'Popular TV Shows', query: 'popular' },
-    { title: 'Top Rated TV Shows', query: 'top_rated' },
-    { title: 'Currently Airing TV Shows', query: 'on_the_air' },
-    { title: 'TV Shows Airing Today', query: 'airing_today' },
+    { title: {us:'Trending TV Shows',zh:'趋势电视剧'}, query: 'trending' },
+    { title: {us:'Popular TV Shows',zh:'流行电视剧'}, query: 'popular' },
+    { title:{us:'Top Rated TV Shows',zh:'高分剧集'} , query: 'top_rated' },
+    { title: {us:'Currently Airing TV Shows',zh:'正在播出'}, query: 'on_the_air' },
+    { title:{us:'TV Shows Airing Today',zh:'今日播出剧集'} , query: 'airing_today' },
   ],
   person:[
-    { title: 'Trending people', query: 'trending' },
-    { title: 'Popular people', query: 'popular' },
+    { title: {us:'Trending people',zh:'趋势人物'}, query: 'trending' },
+    { title: {us:'Popular people',zh:'热门人物'}, query: 'popular' },
   ]
 };
 
@@ -239,7 +240,7 @@ export function getListItem (type, query) {
   }else if (type === 'person') {
     return lists.person.find(list => list.query === query);
   }
-};
+}
 
 /**
  * Get movies (listing)
@@ -259,7 +260,7 @@ export function getMovies (query, page = 1) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * Get movie (single)
@@ -280,7 +281,7 @@ export function getMovie (id) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * Get movie recommended (single)
@@ -300,7 +301,7 @@ export function getMovieRecommended (id, page = 1) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * Get TV shows (listing)
@@ -320,7 +321,7 @@ export function getTvShows (query, page = 1) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * Get TV show (single)
@@ -341,7 +342,7 @@ export function getTvShow (id) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * Get TV show recommended (single)
@@ -361,7 +362,7 @@ export function getTvShowRecommended (id, page = 1) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * Get TV show episodes from season (single)
@@ -380,14 +381,13 @@ export function getTvShowEpisodes (id, season) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * Get trending
  */
 export function getTrending (media, page = 1) {
   return new Promise((resolve, reject) => {
-    console.log(process);
     axios.get(`${apiUrl}/trending/${media}/week`, {
       params: {
         api_key: process.env.API_KEY,
@@ -401,7 +401,7 @@ export function getTrending (media, page = 1) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * Discover media by genre
@@ -422,7 +422,7 @@ export function getMediaByGenre (media, genre, page = 1) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * Get credits
@@ -441,7 +441,7 @@ export function getCredits (id, type) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * Get genre list
@@ -459,7 +459,7 @@ export function getGenreList (media) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * Get people popular(listing)
@@ -479,7 +479,7 @@ export function getPeoplePopular (page = 1) {
         reject(error);
       });
   });
-};
+}
 /**
  * get person(by id)
  */
@@ -499,7 +499,7 @@ export function getPerson (id) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * 搜索（返回结果为电影、电视、人物）
@@ -520,7 +520,7 @@ export function searchMulti (query, page = 1) {
         reject(error);
       });
   });
-};
+}
 export function searchMovie (query, page = 1) {
   return new Promise((resolve, reject) => {
     axios.get(`${apiUrl}/search/movie`, {
@@ -537,7 +537,7 @@ export function searchMovie (query, page = 1) {
         reject(error);
       });
   });
-};
+}
 export function searchTv (query, page = 1) {
   return new Promise((resolve, reject) => {
     axios.get(`${apiUrl}/search/tv`, {
@@ -554,7 +554,7 @@ export function searchTv (query, page = 1) {
         reject(error);
       });
   });
-};
+}
 export function searchPerson (query, page = 1) {
   return new Promise((resolve, reject) => {
     axios.get(`${apiUrl}/search/person`, {
@@ -571,7 +571,7 @@ export function searchPerson (query, page = 1) {
         reject(error);
       });
   });
-};
+}
 /**
  * 获取YouTube信息
  */
@@ -590,4 +590,4 @@ export function getYouTubeVideo (id) {
         reject(error);
       });
   });
-};
+}

@@ -1,5 +1,5 @@
-export const states = () => ({
-
+export const state = () => ({
+  language:'zh'
 });
 export const getters = () => ({
 

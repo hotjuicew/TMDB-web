@@ -20,9 +20,11 @@
   </main>
 </template>
 <script>
+import { mapState } from "vuex";
 import HeroShow from "~/components/global/HeroShow.vue";
 import ListingCarousel from "~/components/global/ListingCarousel.vue";
 import { getTrending, getMovie, getTvShow, getListItem } from '~/api';
+
 
 export default {
   components: {
@@ -54,8 +56,15 @@ export default {
     }
   },
   computed: {
+    ...mapState({
+      language: state => state.language
+    }),
     trendingMoviesTitle () {
-      return getListItem('movie', 'trending').title;
+      console.log(this.language);
+      if (this.language==='zh'){
+        return getListItem('movie', 'trending').title.zh
+      }else return getListItem('movie', 'trending').title.us
+
     },
 
     trendingMoviesUrl () {
@@ -63,14 +72,18 @@ export default {
     },
 
     trendingTvTitle () {
-      return getListItem('tv', 'trending').title;
+      if (this.language==='zh'){
+        return getListItem('tv', 'trending').title.zh
+      }else return getListItem('tv', 'trending').title.us
     },
 
     trendingTvUrl () {
       return { name: 'tv-category-name', params: { name: 'trending' } };
     },
     trendingPersonTitle () {
-      return getListItem('person', 'trending').title;
+      if (this.language==='zh'){
+        return getListItem('person', 'trending').title.zh
+      }else return getListItem('person', 'trending').title.us
     },
     trendingPersonUrl () {
       return { name: 'person-category-name', params: { name: 'trending' } };

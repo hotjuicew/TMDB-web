@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import { getMovies, getMovie, getListItem } from '~/api';
 import ListingCarousel from '~/components/global/ListingCarousel';
 import HeroShow from "~/components/global/HeroShow.vue";
@@ -63,8 +64,12 @@ export default {
   },
 
   computed: {
+    ...mapState({
+      language: state => state.language
+    }),
     popularTitle() {
-      return getListItem('movie', 'popular').title;
+      if (this.language==='zh')  return getListItem('movie', 'popular').title.zh
+      else return getListItem('movie', 'popular').title.us
     },
 
     popularUrl() {
@@ -72,7 +77,8 @@ export default {
     },
 
     topRatedTitle() {
-      return getListItem('movie', 'top_rated').title;
+      if (this.language==='zh') return getListItem('movie', 'top_rated').title.zh
+      else return getListItem('movie', 'top_rated').title.us
     },
 
     topRatedUrl() {
@@ -80,7 +86,8 @@ export default {
     },
 
     upcomingTitle() {
-      return getListItem('movie', 'upcoming').title;
+      if (this.language==='zh') return getListItem('movie', 'upcoming').title.zh
+      else return getListItem('movie', 'upcoming').title.us
     },
 
     upcomingUrl() {
@@ -88,7 +95,8 @@ export default {
     },
 
     nowPlayingTitle() {
-      return getListItem('movie', 'now_playing').title;
+      if (this.language==='zh') return getListItem('movie', 'now_playing').title.zh
+      else return getListItem('movie', 'now_playing').title.us
     },
 
     nowPlayingUrl() {
