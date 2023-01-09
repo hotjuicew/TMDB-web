@@ -68,16 +68,30 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-miterlimit="10"><path d="M16.4 16.7l6.3 6.5"/><ellipse cx="10.5" cy="9.8" rx="9.2" ry="9.1"/></g></svg>
         </button>
       </li>
+      <li>
+        <select v-model="selectedLanguage" @change="changeLanguage" >
+          <option value="zh">中文</option>
+          <option value="en">English</option>
+        </select>
+      </li>
     </ul>
   </nav>
 </template>
 <script>
 import {mapState} from 'vuex'
+// eslint-disable-next-line import/named
 export default {
+  data() {
+    return {
+      selectedLanguage:  this.$i18n.locale,
+    }
+
+  },
   computed: {
-    ...mapState('search', [
-      'searchOpen',
+    ...mapState("search", [
+      "searchOpen"
     ]),
+
   },
 
   methods: {
@@ -87,6 +101,16 @@ export default {
         this.$store.commit('search/toggleSearch');
       }
     },
+    changeLanguage(){
+      this.$i18n.locale = this.selectedLanguage
+      const path = this.$route.path
+      console.log(path,'pate');
+      console.log(path.replace(/^\/[^/]*/, ''));
+      const query = this.$route.query
+      this.$router.replace({ path: `/${this.selectedLanguage}${path.replace(/^\/[^/]*/, '')}`, query })
+      this.$store.commit('SET_LOCALE', this.selectedLanguage)
+      console.log(this.$store.state.locale);
+    }
   },
 
 };

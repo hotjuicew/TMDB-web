@@ -61,7 +61,6 @@ export default {
   ],
   i18n: {
     locales: ['en', 'zh'],
-    defaultLocale: 'zh',
     vueI18n: {
       fallbackLocale: 'en',
       messages: {
