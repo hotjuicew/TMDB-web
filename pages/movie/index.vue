@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { getMovies, getMovie, getListItem } from '~/api';
+import { getMovies, getMovie } from '~/api';
 import ListingCarousel from '~/components/global/ListingCarousel';
 import HeroShow from "~/components/global/HeroShow.vue";
 
@@ -64,7 +64,7 @@ export default {
 
   computed: {
     popularTitle() {
-      return getListItem('movie', 'popular').title;
+      return this.$i18n.t('popularMovies')
     },
 
     popularUrl() {
@@ -72,7 +72,7 @@ export default {
     },
 
     topRatedTitle() {
-      return getListItem('movie', 'top_rated').title;
+      return this.$i18n.t('topRatedMovies')
     },
 
     topRatedUrl() {
@@ -80,7 +80,7 @@ export default {
     },
 
     upcomingTitle() {
-      return getListItem('movie', 'upcoming').title;
+      return this.$i18n.t('upcomingMovies')
     },
 
     upcomingUrl() {
@@ -88,7 +88,7 @@ export default {
     },
 
     nowPlayingTitle() {
-      return getListItem('movie', 'now_playing').title;
+      return this.$i18n.t('nowPlayingMovies')
     },
 
     nowPlayingUrl() {

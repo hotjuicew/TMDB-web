@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { getListItem, getPeoplePopular, getPerson } from "~/api";
+import { getPeoplePopular, getPerson } from "~/api";
 import ListingCarousel from '~/components/global/ListingCarousel.vue';
 import HeroPerson from "~/components/person/HeroPerson.vue";
 
@@ -42,7 +42,7 @@ export default {
 
   computed: {
     popularTitle() {
-      return getListItem('person', 'popular').title;
+      return this.$i18n.t('popularPeople')
     },
 
     popularUrl() {

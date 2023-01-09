@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { getTvShows, getTvShow, getListItem } from '~/api';
+import { getTvShows, getTvShow } from '~/api';
 import ListingCarousel from '~/components/global/ListingCarousel.vue';
 import HeroShow from "~/components/global/HeroShow.vue";
 
@@ -64,7 +64,7 @@ export default {
 
   computed: {
     popularTitle() {
-      return getListItem('tv', 'popular').title;
+      return this.$i18n.t('popularTVShows')
     },
 
     popularUrl() {
@@ -72,7 +72,7 @@ export default {
     },
 
     topRatedTitle() {
-      return getListItem('tv', 'top_rated').title;
+      return this.$i18n.t('topRatedTVShows')
     },
 
     topRatedUrl() {
@@ -80,7 +80,7 @@ export default {
     },
 
     onAirTitle() {
-      return getListItem('tv', 'on_the_air').title;
+      return this.$i18n.t('currentlyAiringTVShows')
     },
 
     onAirUrl() {
@@ -88,7 +88,7 @@ export default {
     },
 
     airingTodayTitle() {
-      return getListItem('tv', 'airing_today').title;
+      return this.$i18n.t('tvShowsAiringToday')
     },
 
     airingTodayUrl() {

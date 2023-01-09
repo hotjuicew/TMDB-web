@@ -22,7 +22,7 @@
 <script>
 import HeroShow from "~/components/global/HeroShow.vue";
 import ListingCarousel from "~/components/global/ListingCarousel.vue";
-import { getTrending, getMovie, getTvShow, getListItem } from '~/api';
+import { getTrending, getMovie, getTvShow} from '~/api';
 
 export default {
   components: {
@@ -55,7 +55,7 @@ export default {
   },
   computed: {
     trendingMoviesTitle () {
-      return getListItem('movie', 'trending').title;
+      return this.$i18n.t('trendingMovies')
     },
 
     trendingMoviesUrl () {
@@ -63,14 +63,14 @@ export default {
     },
 
     trendingTvTitle () {
-      return getListItem('tv', 'trending').title;
+      return this.$i18n.t('trendingTVShows')
     },
 
     trendingTvUrl () {
       return { name: 'tv-category-name', params: { name: 'trending' } };
     },
     trendingPersonTitle () {
-      return getListItem('person', 'trending').title;
+      return this.$i18n.t('trendingPeople')
     },
     trendingPersonUrl () {
       return { name: 'person-category-name', params: { name: 'trending' } };

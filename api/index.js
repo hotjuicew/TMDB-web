@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 /**
  * API url
  */
@@ -15,7 +14,7 @@ export const apiImgUrl = 'https://image.tmdb.org/t/p';
  */
 const lists = {
   movie: [
-    { title: 'Trending Movies', query: 'trending' },
+    { title: 'trendingMovies', query: 'trending' },
     { title: 'Popular Movies', query: 'popular' },
     { title: 'Top Rated Movies', query: 'top_rated' },
     { title: 'Upcoming Movies', query: 'upcoming' },
