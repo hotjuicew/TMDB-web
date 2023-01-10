@@ -16,6 +16,27 @@ export default {
   router: {
     routes: [
       {
+        name: 'zhIndex',
+        path: '/zh',
+        component: 'pages/index.vue'
+      },
+      {
+        name: 'enIndex',
+        path: '/en',
+        component: 'pages/index.vue'
+      },
+      {
+        name: 'zhTv',
+        path: '/zh/tv',
+        component: 'pages/tv/index.vue'
+      },
+      {
+        name: 'enTv',
+        path: '/en/tv',
+        component: 'pages/tv/index.vue'
+      },
+
+      {
         name: 'search',
         path: '/search',
         component: 'pages/search/index.vue'
@@ -35,6 +56,18 @@ export default {
         path: '/person/search',
         component: 'pages/person/search/index.vue'
       },
+
+      // {
+      //   name: 'movie-category-name',
+      //   path: '/movie/category/:name',
+      //   component: 'pages/movie/category/_name.vue'
+      // }
+      {
+        name: 'zh-movie-category-name',
+        path: '/zh/movie/category/:name',
+        component: 'pages/movie/category/_name.vue'
+      },
+
     ]
   },
 
@@ -61,6 +94,7 @@ export default {
   ],
   i18n: {
     locales: ['en', 'zh'],
+    routesNameSeparator: '-',
     vueI18n: {
       fallbackLocale: 'en',
       messages: {

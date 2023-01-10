@@ -59,7 +59,7 @@ export default {
     },
 
     trendingMoviesUrl () {
-      return { name: 'movie-category-name', params: { name: 'trending' } };
+      return { path: this.$i18n.locale+'/movie/category/trending' };
     },
 
     trendingTvTitle () {
@@ -67,13 +67,14 @@ export default {
     },
 
     trendingTvUrl () {
-      return { name: 'tv-category-name', params: { name: 'trending' } };
+      return { path: this.$i18n.locale+'/tv/category/trending' };
+
     },
     trendingPersonTitle () {
       return this.$i18n.t('trendingPeople')
     },
     trendingPersonUrl () {
-      return { name: 'person-category-name', params: { name: 'trending' } };
+      return { path: this.$i18n.locale+'/person/category/trending' };
     },
   },
 

@@ -15,21 +15,21 @@ export const apiImgUrl = 'https://image.tmdb.org/t/p';
 const lists = {
   movie: [
     { title: 'trendingMovies', query: 'trending' },
-    { title: 'Popular Movies', query: 'popular' },
-    { title: 'Top Rated Movies', query: 'top_rated' },
-    { title: 'Upcoming Movies', query: 'upcoming' },
-    { title: 'Now Playing Movies', query: 'now_playing' },
+    { title: 'popularMovies', query: 'popular' },
+    { title: 'topRatedMovies', query: 'top_rated' },
+    { title: 'upcomingMovies', query: 'upcoming' },
+    { title: 'nowPlayingMovies', query: 'now_playing' },
   ],
   tv: [
-    { title: 'Trending TV Shows', query: 'trending' },
-    { title: 'Popular TV Shows', query: 'popular' },
-    { title: 'Top Rated TV Shows', query: 'top_rated' },
-    { title: 'Currently Airing TV Shows', query: 'on_the_air' },
-    { title: 'TV Shows Airing Today', query: 'airing_today' },
+    { title: 'trendingTVShows', query: 'trending' },
+    { title: 'popularTVShows', query: 'popular' },
+    { title: 'topRatedTVShows', query: 'top_rated' },
+    { title: 'currentlyAiringTVShows', query: 'on_the_air' },
+    { title: 'tVShowsAiringToday', query: 'airing_today' },
   ],
   person:[
-    { title: 'Trending people', query: 'trending' },
-    { title: 'Popular people', query: 'popular' },
+    { title: 'trendingPeople', query: 'trending' },
+    { title: 'popularPeople', query: 'popular' },
   ]
 };
 
