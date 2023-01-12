@@ -1,11 +1,11 @@
 <template>
   <main class="main">
     <TopNav
-      :title="$t(metaTitle)"/>
+      :title=$t(metaTitle) />
 
     <Listing
       v-if="items && items.results.length"
-      :title="$t(title)"
+      :title=$t(title)
       :items="items"
       :loading="loading"
       @loadMore="loadMore" />
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { getTrending, getTvShows, getListItem } from '~/api';
+import { getTrending, getPerson, getListItem } from '~/api';
 import TopNav from '~/components/global/TopNav';
 import Listing from '~/components/global/Listing';
 
@@ -55,7 +55,7 @@ export default {
 
   async asyncData ({ params, error,app }) {
     try {
-      const items = params.name === 'trending' ? await getTrending('person',1,app.i18n.locale) : await getTvShows(params.name,1,app.i18n.locale);
+      const items = params.name === 'trending' ? await getTrending('person',1,app.i18n.locale) : await getPerson(params.name,1,app.i18n.locale);
       return { items };
     } catch {
       error({ message: 'Page not found' });
@@ -75,7 +75,7 @@ export default {
           this.loading = false;
         });
       } else {
-        getTvShows(this.$route.params.name, this.items.page + 1,this.$i18n.locale).then((response) => {
+        getPerson(this.$route.params.name, this.items.page + 1,this.$i18n.locale).then((response) => {
           this.items.results = this.items.results.concat(response.results);
           this.items.page = response.page;
           this.loading = false;

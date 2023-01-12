@@ -68,7 +68,7 @@ export default {
     },
 
     popularUrl() {
-      return { name: 'movie-category-name', params: { name: 'popular' } };
+      return {  path: 'movie/category/popular'};
     },
 
     topRatedTitle() {
@@ -76,7 +76,7 @@ export default {
     },
 
     topRatedUrl() {
-      return { name: 'movie-category-name', params: { name: 'top_rated' } };
+      return { path: 'movie/category/top_rated' };
     },
 
     upcomingTitle() {
@@ -84,7 +84,7 @@ export default {
     },
 
     upcomingUrl() {
-      return { name: 'movie-category-name', params: { name: 'upcoming' } };
+      return { path: 'movie/category/upcoming' };
     },
 
     nowPlayingTitle() {
@@ -92,7 +92,7 @@ export default {
     },
 
     nowPlayingUrl() {
-      return { name: 'movie-category-name', params: { name: 'now_playing' } };
+      return { path: 'movie/category/now_playing' };
     },
   },
 

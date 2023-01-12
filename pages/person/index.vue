@@ -46,7 +46,7 @@ export default {
     },
 
     popularUrl() {
-      return { name: 'person-category-name', params: { name: 'popular' } };
+      return {path:'person/category/popular' };
     },
   },
 
