@@ -68,7 +68,7 @@ export default {
     },
 
     popularUrl() {
-      return { name: 'movie-category-name', params: { name: 'popular' } };
+      return { name: `movie-category-name-${this.$i18n.locale}`, params: { name: 'popular' } };
     },
 
     topRatedTitle() {
@@ -76,7 +76,7 @@ export default {
     },
 
     topRatedUrl() {
-      return { name: 'movie-category-name', params: { name: 'top_rated' } };
+      return { name: `movie-category-name-${this.$i18n.locale}`, params: { name: 'top_rated' } };
     },
 
     upcomingTitle() {
@@ -84,7 +84,7 @@ export default {
     },
 
     upcomingUrl() {
-      return { name: 'movie-category-name', params: { name: 'upcoming' } };
+      return { name: `movie-category-name-${this.$i18n.locale}`, params: { name: 'upcoming' } };
     },
 
     nowPlayingTitle() {
@@ -92,7 +92,7 @@ export default {
     },
 
     nowPlayingUrl() {
-      return { name: 'movie-category-name', params: { name: 'now_playing' } };
+      return { name: `movie-category-name-${this.$i18n.locale}`, params: { name: 'now_playing' } };
     },
   },
 

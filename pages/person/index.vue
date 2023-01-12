@@ -46,7 +46,7 @@ export default {
     },
 
     popularUrl() {
-      return { name: 'person-category-name', params: { name: 'popular' } };
+      return { name: `person-category-name-${this.$i18n.locale}`, params: { name: 'popular' } };
     },
   },
 
