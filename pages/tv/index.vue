@@ -68,7 +68,7 @@ export default {
     },
 
     popularUrl() {
-      return {  path: 'tv/category/popular'};
+      return { name: 'tv-category-name', params: { name: 'popular' } };
     },
 
     topRatedTitle() {
@@ -76,7 +76,7 @@ export default {
     },
 
     topRatedUrl() {
-      return {  path: 'tv/category/top_rated'};
+      return { name: 'tv-category-name', params: { name: 'top_rated' } };
     },
 
     onAirTitle() {
@@ -84,7 +84,7 @@ export default {
     },
 
     onAirUrl() {
-      return {  path: 'tv/category/on_the_air'};
+      return { name: 'tv-category-name', params: { name: 'on_the_air' } };
     },
 
     airingTodayTitle() {
@@ -92,7 +92,7 @@ export default {
     },
 
     airingTodayUrl() {
-      return {  path: 'tv/category/airing_today'};
+      return { name: 'tv-category-name', params: { name: 'airing_today' } };
     },
   },
 
