@@ -33,7 +33,7 @@
               </template>
 
               <template v-else>
-                <nuxt-link :to="{ name: `${type}-id`, params: { id: item.id } }">
+                <nuxt-link :to="{ name: `${type}-id-${this.$i18n.locale}`, params: { id: item.id } }">
                   {{ name }}
                 </nuxt-link>
               </template>

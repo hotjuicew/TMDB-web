@@ -21,7 +21,7 @@
           name="hero">
           <div>
             <h1 :class="$style.name">
-              <nuxt-link :to="{ name: `person-id`, params: { id: item.id } }">
+              <nuxt-link :to="{ name: `person-id-zh`, params: { id: item.id } }">
                 {{ name }}
               </nuxt-link>
             </h1>

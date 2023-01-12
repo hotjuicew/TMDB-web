@@ -2,7 +2,7 @@
   <div class="card">
     <nuxt-link
       class="card__link"
-      :to="{ name: `${media}-id`, params: { id: item.id } }">
+      :to="{ name: `${media}-id-${this.$i18n.locale}`, params: { id: item.id } }">
       <div class="card__img">
         <img
           v-if="poster"
