@@ -102,9 +102,9 @@ export default {
     },
   },
 
-  async asyncData ({ params, error }) {
+  async asyncData ({ params, error,app }) {
     try {
-      const person = await getPerson(params.id);
+      const person = await getPerson(params.id,1,app.i18n.locale);
 
       if (person.adult) {
         error({ message: 'This person is not available' });

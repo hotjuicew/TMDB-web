@@ -52,12 +52,12 @@ export default {
       this.$store.commit('search/closeSearch');
     }
   },
-  async asyncData({ query, error, redirect }) {
+  async asyncData({ query, error, redirect,app }) {
     try {
       if (query.q) {
-        const movieItems = await searchMovie(query.q, 1);
-        const tvItems = await searchTv(query.q, 1);
-        const personItems = await searchPerson(query.q, 1);
+        const movieItems = await searchMovie(query.q, 1,app.i18n.locale);
+        const tvItems = await searchTv(query.q, 1,app.i18n.locale);
+        const personItems = await searchPerson(query.q, 1,app.i18n.locale);
         return { movieItems,tvItems,personItems };
       } else {
         redirect('/');
@@ -127,7 +127,7 @@ export default {
       }
 
       // trigger ajax call;
-      const movieData = await searchMulti(this.query);
+      const movieData = await searchMulti(this.query,1,this.$i18n.locale);
 
       // if no results, do nothing
       if (!movieData.total_results) {
@@ -141,7 +141,7 @@ export default {
 
     loadMoreMovie() {
       this.loading = true;
-      searchMovie(this.query, this.items.page + 1).then((response) => {
+      searchMovie(this.query, this.items.page + 1,this.$i18n.locale).then((response) => {
         this.items.results = this.items.results.concat(response.results);
         this.items.page = response.page;
         this.loading = false;
@@ -151,7 +151,7 @@ export default {
     },
     loadMoreTv() {
       this.loading = true;
-      searchTv(this.query, this.items.page + 1).then((response) => {
+      searchTv(this.query, this.items.page + 1,this.$i18n.locale).then((response) => {
         this.items.results = this.items.results.concat(response.results);
         this.items.page = response.page;
         this.loading = false;
@@ -161,7 +161,7 @@ export default {
     },
     loadMorePerson() {
       this.loading = true;
-      searchPerson(this.query, this.items.page + 1).then((response) => {
+      searchPerson(this.query, this.items.page + 1,this.$i18n.locale).then((response) => {
         this.items.results = this.items.results.concat(response.results);
         this.items.page = response.page;
         this.loading = false;

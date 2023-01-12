@@ -72,9 +72,9 @@ export default {
     yearStart,
   ],
 
-  async asyncData ({ params, error }) {
+  async asyncData ({ params, error,app }) {
     try {
-      const item = await getMovie(params.id);
+      const item = await getMovie(params.id,app.i18n.locale);
 
       if (item.adult) {
         error({ message: 'This movie is not available' });
@@ -185,7 +185,7 @@ export default {
       // if recommended don't exist, retreive them
       if (this.recommended !== null) return;
 
-      getMovieRecommended(this.$route.params.id).then((response) => {
+      getMovieRecommended(this.$route.params.id,1,this.$i18n.locale).then((response) => {
         this.recommended = response;
       });
     },

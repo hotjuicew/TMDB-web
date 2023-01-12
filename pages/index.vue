@@ -30,12 +30,12 @@ export default {
     HeroShow
   },
 
-  async asyncData ({ error }) {
+  async asyncData ({ error,app }) {
     try {
-      const trendingMovies = await getTrending('movie');
-      const trendingTv = await getTrending('tv');
+      const trendingMovies = await getTrending('movie',1,app.i18n.locale);
+      const trendingTv = await getTrending('tv',1,app.i18n.locale);
       // eslint-disable-next-line no-unused-vars
-      const trendingPerson = await getTrending('person');
+      const trendingPerson = await getTrending('person',1,app.i18n.locale);
       let featured;
 
       // feature a random item from movies or tv
@@ -44,9 +44,9 @@ export default {
       const media = randomItem.title ? 'movie' : 'tv';
 
       if (media === 'movie') {
-        featured = await getMovie(randomItem.id);
+        featured = await getMovie(randomItem.id,app.i18n.locale);
       } else {
-        featured = await getTvShow(randomItem.id);
+        featured = await getTvShow(randomItem.id,app.i18n.locale);
       }
       return { trendingMovies, trendingTv, trendingPerson,featured };
     } catch {

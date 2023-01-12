@@ -57,10 +57,10 @@ export default {
     },
   },
 
-  async asyncData ({ params, error }) {
+  async asyncData ({ params, error,app }) {
     try {
-      const items = await getMediaByGenre('movie', params.id);
-      const genres = await getGenreList('movie');
+      const items = await getMediaByGenre('movie', params.id,1,app.i18n.locale);
+      const genres = await getGenreList('movie',app.i18n.locale);
       const genre = genres.find(genre => genre.id === parseInt(params.id));
 
       if (genre) {
@@ -77,7 +77,7 @@ export default {
     loadMore () {
       this.loading = true;
 
-      getMediaByGenre('movie', this.$route.params.id, this.items.page + 1).then((response) => {
+      getMediaByGenre('movie', this.$route.params.id, this.items.page + 1,this.$i18n.locale).then((response) => {
         this.items.results = this.items.results.concat(response.results);
         this.items.page = response.page;
         this.loading = false;

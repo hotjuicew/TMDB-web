@@ -238,17 +238,17 @@ export function getListItem (type, query) {
   }else if (type === 'person') {
     return lists.person.find(list => list.query === query);
   }
-};
+}
 
 /**
  * Get movies (listing)
  */
-export function getMovies (query, page = 1) {
+export function getMovies (query, page = 1,lang) {
   return new Promise((resolve, reject) => {
     axios.get(`${apiUrl}/movie/${query}`, {
       params: {
         api_key: process.env.API_KEY,
-        language: process.env.API_LANG,
+        language: lang,
         page,
       },
     }).then((response) => {
@@ -258,17 +258,17 @@ export function getMovies (query, page = 1) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * Get movie (single)
  */
-export function getMovie (id) {
+export function getMovie (id,lang) {
   return new Promise((resolve, reject) => {
     axios.get(`${apiUrl}/movie/${id}`, {
       params: {
         api_key: process.env.API_KEY,
-        language: process.env.API_LANG,
+        language: lang,
         append_to_response: 'videos,credits,images,external_ids,release_dates',
         include_image_language: 'en',
       },
@@ -279,17 +279,17 @@ export function getMovie (id) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * Get movie recommended (single)
  */
-export function getMovieRecommended (id, page = 1) {
+export function getMovieRecommended (id, page = 1,lang) {
   return new Promise((resolve, reject) => {
     axios.get(`${apiUrl}/movie/${id}/recommendations`, {
       params: {
         api_key: process.env.API_KEY,
-        language: process.env.API_LANG,
+        language: lang,
         page,
       },
     }).then((response) => {
@@ -299,17 +299,17 @@ export function getMovieRecommended (id, page = 1) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * Get TV shows (listing)
  */
-export function getTvShows (query, page = 1) {
+export function getTvShows (query, page = 1,lang) {
   return new Promise((resolve, reject) => {
     axios.get(`${apiUrl}/tv/${query}`, {
       params: {
         api_key: process.env.API_KEY,
-        language: process.env.API_LANG,
+        language: lang,
         page,
       },
     }).then((response) => {
@@ -319,17 +319,17 @@ export function getTvShows (query, page = 1) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * Get TV show (single)
  */
-export function getTvShow (id) {
+export function getTvShow (id,lang) {
   return new Promise((resolve, reject) => {
     axios.get(`${apiUrl}/tv/${id}`, {
       params: {
         api_key: process.env.API_KEY,
-        language: process.env.API_LANG,
+        language: lang,
         append_to_response: 'videos,credits,images,external_ids,content_ratings',
         include_image_language: 'en',
       },
@@ -340,17 +340,17 @@ export function getTvShow (id) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * Get TV show recommended (single)
  */
-export function getTvShowRecommended (id, page = 1) {
+export function getTvShowRecommended (id, page = 1,lang) {
   return new Promise((resolve, reject) => {
     axios.get(`${apiUrl}/tv/${id}/recommendations`, {
       params: {
         api_key: process.env.API_KEY,
-        language: process.env.API_LANG,
+        language: lang,
         page,
       },
     }).then((response) => {
@@ -360,17 +360,17 @@ export function getTvShowRecommended (id, page = 1) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * Get TV show episodes from season (single)
  */
-export function getTvShowEpisodes (id, season) {
+export function getTvShowEpisodes (id, season,lang) {
   return new Promise((resolve, reject) => {
     axios.get(`${apiUrl}/tv/${id}/season/${season}`, {
       params: {
         api_key: process.env.API_KEY,
-        language: process.env.API_LANG,
+        language: lang,
       },
     }).then((response) => {
       resolve(response.data);
@@ -379,18 +379,18 @@ export function getTvShowEpisodes (id, season) {
         reject(error);
       });
   });
-};
-
+}
+// 为不同语言修改了api请求
 /**
  * Get trending
  */
-export function getTrending (media, page = 1) {
+export function getTrending (media, page = 1,lang) {
   return new Promise((resolve, reject) => {
     console.log(process);
     axios.get(`${apiUrl}/trending/${media}/week`, {
       params: {
         api_key: process.env.API_KEY,
-        language: process.env.API_LANG,
+        language: lang,
         page,
       },
     }).then((response) => {
@@ -400,17 +400,17 @@ export function getTrending (media, page = 1) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * Discover media by genre
  */
-export function getMediaByGenre (media, genre, page = 1) {
+export function getMediaByGenre (media, genre, page = 1,lang) {
   return new Promise((resolve, reject) => {
     axios.get(`${apiUrl}/discover/${media}`, {
       params: {
         api_key: process.env.API_KEY,
-        language: process.env.API_LANG,
+        language: lang,
         with_genres: genre,
         page,
       },
@@ -421,17 +421,17 @@ export function getMediaByGenre (media, genre, page = 1) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * Get credits
  */
-export function getCredits (id, type) {
+export function getCredits (id, type,lang) {
   return new Promise((resolve, reject) => {
     axios.get(`${apiUrl}/person/${id}/${type}`, {
       params: {
         api_key: process.env.API_KEY,
-        language: process.env.API_LANG,
+        language: lang,
       },
     }).then((response) => {
       resolve(response.data);
@@ -440,7 +440,7 @@ export function getCredits (id, type) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * Get genre list
@@ -458,17 +458,17 @@ export function getGenreList (media) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * Get people popular(listing)
  */
-export function getPeoplePopular (page = 1) {
+export function getPeoplePopular (page = 1,lang) {
   return new Promise((resolve, reject) => {
     axios.get(`${apiUrl}/person/popular`, {
       params: {
         api_key: process.env.API_KEY,
-        language: process.env.API_LANG,
+        language: lang,
         page,
       },
     }).then((response) => {
@@ -478,18 +478,19 @@ export function getPeoplePopular (page = 1) {
         reject(error);
       });
   });
-};
+}
 /**
  * get person(by id)
  */
-export function getPerson (id) {
+export function getPerson (id,page=1,lang) {
   return new Promise((resolve, reject) => {
     axios.get(`${apiUrl}/person/${id}`, {
       params: {
         api_key: process.env.API_KEY,
-        language: process.env.API_LANG,
+        language: lang,
         append_to_response: 'images,combined_credits,external_ids',
         include_image_language: 'en',
+        page
       },
     }).then((response) => {
       resolve(response.data);
@@ -498,17 +499,17 @@ export function getPerson (id) {
         reject(error);
       });
   });
-};
+}
 
 /**
  * 搜索（返回结果为电影、电视、人物）
  */
-export function searchMulti (query, page = 1) {
+export function searchMulti (query, page = 1,lang) {
   return new Promise((resolve, reject) => {
     axios.get(`${apiUrl}/search/multi`, {
       params: {
         api_key: process.env.API_KEY,
-        language: process.env.API_LANG,
+        language: lang,
         query,
         page,
       },
@@ -519,13 +520,13 @@ export function searchMulti (query, page = 1) {
         reject(error);
       });
   });
-};
-export function searchMovie (query, page = 1) {
+}
+export function searchMovie (query, page = 1,lang) {
   return new Promise((resolve, reject) => {
     axios.get(`${apiUrl}/search/movie`, {
       params: {
         api_key: process.env.API_KEY,
-        language: process.env.API_LANG,
+        language: lang,
         query,
         page,
       },
@@ -536,13 +537,13 @@ export function searchMovie (query, page = 1) {
         reject(error);
       });
   });
-};
-export function searchTv (query, page = 1) {
+}
+export function searchTv (query, page = 1,lang) {
   return new Promise((resolve, reject) => {
     axios.get(`${apiUrl}/search/tv`, {
       params: {
         api_key: process.env.API_KEY,
-        language: process.env.API_LANG,
+        language: lang,
         query,
         page,
       },
@@ -553,13 +554,13 @@ export function searchTv (query, page = 1) {
         reject(error);
       });
   });
-};
-export function searchPerson (query, page = 1) {
+}
+export function searchPerson (query, page = 1,lang) {
   return new Promise((resolve, reject) => {
     axios.get(`${apiUrl}/search/person`, {
       params: {
         api_key: process.env.API_KEY,
-        language: process.env.API_LANG,
+        language: lang,
         query,
         page,
       },
@@ -570,7 +571,7 @@ export function searchPerson (query, page = 1) {
         reject(error);
       });
   });
-};
+}
 /**
  * 获取YouTube信息
  */
@@ -589,4 +590,4 @@ export function getYouTubeVideo (id) {
         reject(error);
       });
   });
-};
+}

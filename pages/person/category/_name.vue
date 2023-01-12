@@ -53,9 +53,9 @@ export default {
     },
   },
 
-  async asyncData ({ params, error }) {
+  async asyncData ({ params, error,app }) {
     try {
-      const items = params.name === 'trending' ? await getTrending('person') : await getTvShows(params.name);
+      const items = params.name === 'trending' ? await getTrending('person',1,app.i18n.locale) : await getTvShows(params.name,1,app.i18n.locale);
       return { items };
     } catch {
       error({ message: 'Page not found' });
@@ -67,7 +67,7 @@ export default {
       this.loading = true;
 
       if (this.$route.params.name === 'trending') {
-        getTrending('tv', this.items.page + 1).then((response) => {
+        getTrending('tv', this.items.page + 1,this.$i18n.locale).then((response) => {
           this.items.results = this.items.results.concat(response.results);
           this.items.page = response.page;
           this.loading = false;
@@ -75,7 +75,7 @@ export default {
           this.loading = false;
         });
       } else {
-        getTvShows(this.$route.params.name, this.items.page + 1).then((response) => {
+        getTvShows(this.$route.params.name, this.items.page + 1,this.$i18n.locale).then((response) => {
           this.items.results = this.items.results.concat(response.results);
           this.items.page = response.page;
           this.loading = false;

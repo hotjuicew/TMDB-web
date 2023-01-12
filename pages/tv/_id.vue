@@ -81,9 +81,9 @@ export default {
     yearStart,
     yearEnd,
   ],
-  async asyncData ({ params, error }) {
+  async asyncData ({ params, error,app }) {
     try {
-      const item = await getTvShow(params.id);
+      const item = await getTvShow(params.id,app.i18n.locale);
 
       if (item.adult) {
         error({ message: 'This tv show is not available' });
@@ -203,7 +203,7 @@ export default {
       // if recommended don't exist, retreive them
       if (this.recommended !== null) return;
 
-      getTvShowRecommended(this.$route.params.id).then((response) => {
+      getTvShowRecommended(this.$route.params.id,this.$i18n.locale).then((response) => {
         this.recommended = response;
       });
     },

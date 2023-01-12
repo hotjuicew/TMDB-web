@@ -39,13 +39,13 @@ export default {
     HeroShow,
     ListingCarousel,
   },
-  async asyncData({ error }) {
+  async asyncData({ error,app }) {
     try {
-      const popular = await getTvShows('popular');
-      const topRated = await getTvShows('top_rated');
-      const onAir = await getTvShows('on_the_air');
-      const airingToday = await getTvShows('airing_today');
-      const featured = await getTvShow(popular.results[0].id);
+      const popular = await getTvShows('popular',1,app.i18n.locale);
+      const topRated = await getTvShows('top_rated',1,app.i18n.locale);
+      const onAir = await getTvShows('on_the_air',1,app.i18n.locale);
+      const airingToday = await getTvShows('airing_today',1,app.i18n.locale);
+      const featured = await getTvShow(popular.results[0].id,app.i18n.locale);
 
       return { popular, topRated, onAir, airingToday, featured };
     } catch {

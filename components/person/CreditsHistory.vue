@@ -179,7 +179,7 @@ export default {
         this.active_category = 'all';
         this.categories = this.getCategories();
       } else {
-        getCredits(this.$route.params.id, media).then((response) => {
+        getCredits(this.$route.params.id, media,this.$i18n.locale).then((response) => {
           const cast = this.handleCast(response.cast);
           const crew = this.handleCrew(response.crew);
 

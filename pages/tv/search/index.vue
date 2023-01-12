@@ -33,10 +33,10 @@ export default {
       this.$store.commit('search/closeSearch');
     }
   },
-  async asyncData ({ query, error, redirect }) {
+  async asyncData ({ query, error, redirect,app }) {
     try {
       if (query.q) {
-        const items = await searchTv(query.q, 1)
+        const items = await searchTv(query.q, 1,app.i18n.locale)
         return { items };
       } else {
         redirect('/');
@@ -93,7 +93,7 @@ export default {
       }
 
       // trigger ajax call;
-      const data = await searchMulti(this.query);
+      const data = await searchMulti(this.query,1,this.$i18n.locale);
 
       // if no results, do nothing
       if (!data.total_results) {
@@ -108,7 +108,7 @@ export default {
     loadMore () {
       this.loading = true;
 
-      searchMulti(this.query, this.items.page + 1).then((response) => {
+      searchMulti(this.query, this.items.page + 1,this.$i18n.locale).then((response) => {
         this.items.results = this.items.results.concat(response.results);
         this.items.page = response.page;
         this.loading = false;

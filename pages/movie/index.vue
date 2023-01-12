@@ -39,13 +39,13 @@ export default {
     HeroShow,
     ListingCarousel,
   },
-  async asyncData({ error }) {
+  async asyncData({ error,app }) {
     try {
-      const popular = await getMovies('popular');
-      const topRated = await getMovies('top_rated');
-      const upcoming = await getMovies('upcoming');
-      const nowPlaying = await getMovies('now_playing');
-      const featured = await getMovie(upcoming.results[0].id);
+      const popular = await getMovies('popular',1,app.i18n.locale);
+      const topRated = await getMovies('top_rated',1,app.i18n.locale);
+      const upcoming = await getMovies('upcoming',1,app.i18n.locale);
+      const nowPlaying = await getMovies('now_playing',1,app.i18n.locale);
+      const featured = await getMovie(upcoming.results[0].id,app.i18n.locale);
 
       return { popular, topRated, upcoming, nowPlaying, featured };
     } catch {

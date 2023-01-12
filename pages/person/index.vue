@@ -19,11 +19,11 @@ export default {
     HeroPerson,
     ListingCarousel,
   },
-  async asyncData({ error }) {
+  async asyncData({ error,app}) {
     try {
-      const popular = await getPeoplePopular();
+      const popular = await getPeoplePopular(1,app.i18n.locale);
       const featuredId=popular.results[0].id
-      const feature=await getPerson(featuredId)
+      const feature=await getPerson(featuredId,1,app.i18n.locale)
       console.log('feature',feature);
       return { popular,feature};
     } catch {
