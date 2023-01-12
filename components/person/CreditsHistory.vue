@@ -263,7 +263,7 @@ export default {
 </script>
 
 <style lang="scss" module>
-@import '~/assets/css/utilities/_variables.scss';
+@import '/assets/css/utilities/_variables.scss';
 
 .head {
   display: flex;

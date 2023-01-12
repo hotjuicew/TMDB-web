@@ -20,7 +20,7 @@
         v-if="item.overview"
         :class="$style.overview">
         <h2 :class="$style.title">
-          Storyline
+          {{$t('storyline')}}
         </h2>
 
         <div v-html="item.overview" />
@@ -30,25 +30,16 @@
         <ul class="nolist">
           <li v-if="item.first_air_date">
             <div :class="$style.label">
-              First Aired
+              {{$t('firstAired')}}
             </div>
 
             <div :class="$style.value">
               {{ item.first_air_date | fullDate }}
             </div>
           </li>
-          <li v-if="item.last_air_date">
-            <div :class="$style.label">
-              Last Aired
-            </div>
-
-            <div :class="$style.value">
-              {{ item.last_air_date | fullDate }}
-            </div>
-          </li>
           <li v-if="item.episode_run_time && item.episode_run_time.length">
             <div :class="$style.label">
-              Runtime
+              {{$t('runtime')}}
             </div>
 
             <div :class="$style.value">
@@ -57,7 +48,7 @@
           </li>
           <li v-if="creators">
             <div :class="$style.label">
-              Creator
+              {{$t('creator')}}
             </div>
 
             <div
@@ -66,7 +57,7 @@
           </li>
           <li v-if="item.genres && item.genres.length">
             <div :class="$style.label">
-              Genre
+              {{$t('genre')}}
             </div>
 
             <div
@@ -84,7 +75,7 @@
           </li>
           <li v-if="item.number_of_episodes">
             <div :class="$style.label">
-              Episodes
+              {{$t('episodes')}}
             </div>
 
             <div :class="$style.value">
@@ -93,7 +84,7 @@
           </li>
           <li v-if="item.status">
             <div :class="$style.label">
-              Status
+              {{$t('status')}}
             </div>
 
             <div :class="$style.value">
@@ -102,7 +93,7 @@
           </li>
           <li v-if="item.original_language">
             <div :class="$style.label">
-              Language
+              {{$t('language')}}
             </div>
 
             <div :class="$style.value">
@@ -111,7 +102,7 @@
           </li>
           <li v-if="item.networks && item.networks.length">
             <div :class="$style.label">
-              Network
+              {{$t('network')}}
             </div>
 
             <div :class="$style.value">

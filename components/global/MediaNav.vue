@@ -6,7 +6,7 @@
       :class="[$style.button, { [$style.buttonActive] : active === index }]"
       type="button"
       @click="clicked(index, item)">
-      {{ item }}
+      {{ $t(`${item}`) }}
     </button>
   </div>
 </template>
@@ -58,7 +58,7 @@ export default {
   font-size: 1.4rem;
   font-weight: 500;
   color: #585858;
-  text-transform: uppercase;
+  //text-transform: uppercase;
   letter-spacing: $letter-spacing;
   background: none;
   border-right: 1px solid $base-bg;

@@ -24,7 +24,7 @@
     <template v-if="activeMenu === 'photos' && showImages">
       <Images
         v-if="person.images.profiles.length"
-        title="Photos"
+        title="photos"
         type="poster"
         :images="person.images.profiles" />
     </template>
@@ -130,13 +130,13 @@ export default {
       const menu = [];
 
       // known for
-      menu.push('Known For');
+      menu.push('knownFor');
 
       // credits
-      menu.push('Credits');
+      menu.push('credits');
 
       // images
-      if (this.showImages) menu.push('Photos');
+      if (this.showImages) menu.push('photos');
 
       this.menu = menu;
     },

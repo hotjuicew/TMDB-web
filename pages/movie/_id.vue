@@ -166,13 +166,13 @@ export default {
       const menu = [];
 
       // overview
-      menu.push('Overview');
+      menu.push('overview');
 
       // videos
-      if (this.showVideos) menu.push('Videos');
+      if (this.showVideos) menu.push('videos');
 
       // images
-      if (this.showImages) menu.push('Photos');
+      if (this.showImages) menu.push('photos');
 
       this.menu = menu;
     },

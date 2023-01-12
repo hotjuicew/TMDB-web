@@ -181,16 +181,16 @@ export default {
       const menu = [];
 
       // overview
-      menu.push('Overview');
+      menu.push('overview');
 
       // episodes
-      if (this.showEpisodes) menu.push('Episodes');
+      if (this.showEpisodes) menu.push('episodes');
 
       // videos
-      if (this.showVideos) menu.push('Videos');
+      if (this.showVideos) menu.push('videos');
 
       // images
-      if (this.showImages) menu.push('Photos');
+      if (this.showImages) menu.push('photos');
 
       this.menu = menu;
     },
@@ -203,7 +203,7 @@ export default {
       // if recommended don't exist, retreive them
       if (this.recommended !== null) return;
 
-      getTvShowRecommended(this.$route.params.id,this.$i18n.locale).then((response) => {
+      getTvShowRecommended(this.$route.params.id,1,this.$i18n.locale).then((response) => {
         this.recommended = response;
       });
     },

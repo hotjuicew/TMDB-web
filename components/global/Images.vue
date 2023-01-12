@@ -2,7 +2,7 @@
   <div class="spacing">
     <div :class="$style.head">
       <h2 :class="$style.title">
-        {{ title }}
+        {{ $t(title) }}
       </h2>
 
       <strong :class="$style.count">

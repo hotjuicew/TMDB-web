@@ -12,5 +12,26 @@ module.exports = {
   "trendingPeople": "趋势人物",
   "popularPeople": "热门人物",
 
-  'exploreMore':'查看更多'
+  'exploreMore':'查看更多',
+
+  'overview':'概述',
+  'videos':'视频',
+  'photos':'图片',
+  'episodes':'情节',
+  'knownFor':'知名于',
+  'credits':'演出',
+  'born':'出生日期',
+  'placeOfBirth':'出生地',
+  'storyline':'故事线',
+
+  'released':'上映',
+  'runtime':'时长',
+  'director':'导演',
+  'budget':'预算',
+  'revenue':'收入',
+  'genre':'类型',
+  'status':'状态',
+  'language':'语言',
+  'production':'出品方',
+
 }

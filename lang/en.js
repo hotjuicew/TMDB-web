@@ -12,6 +12,32 @@ module.exports = {
   "trendingPeople": "Trending people",
   "popularPeople": "Popular people",
 
-  'exploreMore':'Explore More'
+  'exploreMore':'Explore More',
+
+  'overview':'Overview',
+  'videos':'Videos',
+  'photos':'Photos',
+  'episodes':"Episodes",
+  'knownFor':'Known For',
+  'credits':'Credits',
+  'born':'Born',
+  'placeOfBirth':'Place of Birth',
+  'storyline':'Storyline',
+
+  'released':'Released',
+  'runtime':'Runtime',
+  'director':'Director',
+  'budget':'Budget',
+  'revenue':'Revenue',
+  'genre':'Genre',
+  'status':'Status',
+  'language':'Language',
+  'production':'Production',
+
+  'firstAired':'First Aired',
+  'creator':'Creator',
+  'seasons':'Seasons',
+  'network':'Network',
+
 
 }

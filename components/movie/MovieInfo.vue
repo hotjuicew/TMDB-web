@@ -20,7 +20,7 @@
         v-if="item.overview"
         :class="$style.overview">
         <h2 :class="$style.title">
-          Storyline
+          {{$t('storyline')}}
         </h2>
 
         <div>{{item.overview}}</div>
@@ -30,7 +30,7 @@
         <ul class="nolist">
           <li v-if="item.release_date">
             <div :class="$style.label">
-              Released
+              {{$t('released')}}
             </div>
 
             <div :class="$style.value">
@@ -39,7 +39,7 @@
           </li>
           <li v-if="item.runtime">
             <div :class="$style.label">
-              Runtime
+               {{$t('runtime')}}
             </div>
 
             <div :class="$style.value">
@@ -48,7 +48,7 @@
           </li>
           <li v-if="directors">
             <div :class="$style.label">
-              Director
+              {{$t('director')}}
             </div>
 
             <div
@@ -57,7 +57,7 @@
           </li>
           <li v-if="item.budget">
             <div :class="$style.label">
-              Budget
+              {{$t('budget')}}
             </div>
 
             <div :class="$style.value">
@@ -66,7 +66,7 @@
           </li>
           <li v-if="item.revenue">
             <div :class="$style.label">
-              Revenue
+              {{$t('revenue')}}
             </div>
 
             <div :class="$style.value">
@@ -75,7 +75,7 @@
           </li>
           <li v-if="item.genres && item.genres.length">
             <div :class="$style.label">
-              Genre
+              {{$t('genre')}}
             </div>
 
             <div
@@ -84,7 +84,7 @@
           </li>
           <li v-if="item.status">
             <div :class="$style.label">
-              Status
+              {{$t('status')}}
             </div>
 
             <div :class="$style.value">
@@ -93,7 +93,7 @@
           </li>
           <li v-if="item.original_language">
             <div :class="$style.label">
-              Language
+              {{$t('language')}}
             </div>
 
             <div :class="$style.value">
@@ -102,7 +102,7 @@
           </li>
           <li v-if="item.production_companies && item.production_companies.length">
             <div :class="$style.label">
-              Production
+              {{$t('production')}}
             </div>
 
             <div :class="$style.value">
