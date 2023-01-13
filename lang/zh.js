@@ -20,6 +20,7 @@ module.exports = {
   'episodes':'剧集',
   'credits':'经历',
   'PersonInfo':{
+    'episodes':"情节",
     'knownFor':'职业',
     'born':'出生日期',
     'placeOfBirth':'出生地',
@@ -65,8 +66,22 @@ module.exports = {
     'all':'全部',
     'Acting':'出演',
     'Production':'制片',
+    'Camera':'摄影',
     'as':'饰演',
-    'dr':'担任',
+    'dr':' ：',
+    'Directing':'导演',
+    'Writing':'编剧',
+    'Director':'导演',
+    'Screenplay':'剧本',
+    'Story':'故事',
+    'Writer':'编剧',
   },
+  'age':'年龄',
+  'aged':'享年',
+  'Job':{
+    'Acting':'演员',
+    'Directing':'导演',
+    'Writing':'编剧',
+  }
 
 }

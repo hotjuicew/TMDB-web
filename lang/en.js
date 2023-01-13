@@ -64,9 +64,23 @@ module.exports = {
     'all':'All',
     'Acting':'Acting',
     'Production':'Production',
+    'Camera':'Camera',
     'as':'as',
     'dr':'as',
+    'Directing':'Directing',
+    'Writing':'Writing',
+    'Director':'Director',
+    'Screenplay':'Screenplay',
+    'Story':'Story',
+    'Writer':'Writer',
   },
+  'age':'age',
+  'aged':'aged',
+  'Job':{
+    'Acting':'Acting',
+    'Directing':'Directing',
+    'Writing':'Writing',
+  }
 
 
 }

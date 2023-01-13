@@ -59,7 +59,7 @@ export default {
       if (character) {
         return this.$i18n.t('CreditsHistory.as')+` ${character}`;
       } else if (job) {
-        return this.$i18n.t('CreditsHistory.dr')+` ${job}`;
+        return this.$i18n.t('CreditsHistory.dr')+this.$i18n.t(`CreditsHistory.${job}`);
       } else {
         return false;
       }

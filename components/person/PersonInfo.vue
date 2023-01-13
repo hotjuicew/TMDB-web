@@ -39,7 +39,7 @@
             </div>
 
             <div :class="$style.value">
-              {{ person.known_for_department }}
+              {{ $t(`Job.${person.known_for_department}`) }}
             </div>
           </li>
           <li v-if="person.birthday">
@@ -48,8 +48,8 @@
             </div>
 
             <div :class="$style.value">
-              {{ person.birthday | fullDate }}
-              <span v-if="!person.deathday">(age {{ age }})</span>
+              {{ formatBirthday(person.birthday) }}
+              <span v-if="!person.deathday">( {{$t('age')}} {{ age }} )</span>
             </div>
           </li>
           <li v-if="person.place_of_birth">
@@ -68,7 +68,7 @@
 
             <div :class="$style.value">
               {{ person.deathday | fullDate }}
-              <span v-if="person.birthday">(aged {{ age }})</span>
+              <span v-if="person.birthday">( {{$t('aged')}} {{ age }} )</span>
             </div>
           </li>
         </ul>
@@ -128,6 +128,18 @@ export default {
       return string.split('\n').filter(section => section !== '').map(section => `<p>${section}</p>`).join('');
     },
 
+    formatBirthday(birthday){
+      const dateArray = birthday.split('-');
+      if (this.$i18n.locale==='en' ){
+        const date = dateArray[2].substr(0, 1) === '0' ? dateArray[2].substr(1, 1) : dateArray[2];
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+        return `${date} ${months[dateArray[1] - 1]} ${dateArray[0]}`;
+      }
+      else {
+        return `${dateArray[0]}年 ${dateArray[1]}月 ${dateArray[2]}日`;
+      }
+    },
     getAge (born, died) {
       const startDate = new Date(born);
       let endDate;

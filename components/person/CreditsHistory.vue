@@ -51,7 +51,7 @@
       :key="`credits-${category.name.toLowerCase()}`"
       :class="$style.category">
       <h2 :class="$style.title">
-        {{ category.name }}
+        {{$t(`CreditsHistory.${category.name}`)}}
       </h2>
 
       <table>

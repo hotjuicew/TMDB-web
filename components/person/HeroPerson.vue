@@ -29,13 +29,13 @@
             <div :class="$style.meta">
 
               <div :class="$style.info">
-                <span v-if="item.known_for_department">known for: {{ item.known_for_department }}</span>
-                <span v-if="item.birthday">Born: {{ item.birthday }}</span>
-                <span v-if="item.place_of_birth">Place of Birth: {{ item.place_of_birth }}</span>
+                <span v-if="item.known_for_department">{{$t('PersonInfo.knownFor')}}:  {{ $t(`Job.${item.known_for_department}`) }}</span>
+                <span v-if="item.birthday">{{$t('PersonInfo.born')}}: {{ formatBirthday(item.birthday) }}</span>
+                <span v-if="item.place_of_birth"> {{$t('PersonInfo.placeOfBirth')}}: {{ item.place_of_birth }}</span>
               </div>
             </div>
             <div :class="$style.desc">
-              {{ item.biography | truncate(200) }}
+              {{ item.biography  }}
             </div>
           </div>
         </transition>
@@ -80,6 +80,18 @@ export default {
 
     closeModal () {
       this.modalVisible = false;
+    },
+    formatBirthday(birthday){
+      const dateArray = birthday.split('-');
+      if (this.$i18n.locale==='en' ){
+        const date = dateArray[2].substr(0, 1) === '0' ? dateArray[2].substr(1, 1) : dateArray[2];
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+        return `${date} ${months[dateArray[1] - 1]} ${dateArray[0]}`;
+      }
+      else {
+        return `${dateArray[0]}年 ${dateArray[1]}月 ${dateArray[2]}日`;
+      }
     },
   },
 };

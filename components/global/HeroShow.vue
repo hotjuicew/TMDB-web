@@ -49,15 +49,19 @@
                   <div :style="{ width: `${stars}%` }" />
                 </div>
 
-                <div v-if="item.vote_count > 0">
+                <div v-if="item.vote_count > 0&&this.$i18n.locale==='en'">
                   {{ item.vote_count | numberWithCommas }} Reviews
+                </div>
+                <div v-if="item.vote_count > 0&&this.$i18n.locale==='zh'">
+                  {{ item.vote_count | numberWithCommas }} 人评价
                 </div>
               </div>
 
               <div :class="$style.info">
-                <span v-if="item.number_of_seasons">Season {{ item.number_of_seasons }}</span>
+                <span v-if="item.number_of_seasons&&this.$i18n.locale==='en'">Season {{ item.number_of_seasons }}</span>
+                <span v-if="item.number_of_seasons&&this.$i18n.locale==='zh'"> 第 {{ item.number_of_seasons }} 季</span>
                 <span v-if="yearStart">{{ yearStart }}</span>
-                <span v-if="item.runtime">{{ item.runtime | runtime }}</span>
+                <span v-if="item.runtime">{{ runtimeFormat(item.runtime)}}</span>
                 <span v-if="cert">Cert. {{ cert }}</span>
               </div>
             </div>
@@ -126,6 +130,7 @@ export default {
     type () {
       return this.item.title ? 'movie' : 'tv';
     },
+
   },
 
   methods: {
@@ -135,6 +140,22 @@ export default {
 
     closeModal () {
       this.modalVisible = false;
+    },
+    runtimeFormat(minutes){
+      // seconds
+      const seconds = minutes * 60;
+      let secondsLeft = seconds;
+
+      // hours
+      const hours = Math.floor(secondsLeft / 3600);
+      secondsLeft = secondsLeft % 3600;
+
+      // mins
+      const mins = Math.floor(secondsLeft / 60);
+      secondsLeft = secondsLeft % 60;
+
+      if (this.$i18n.locale==='en')return `${hours ? hours + 'h' : ''} ${mins}min`;
+      if (this.$i18n.locale==='zh')return `${hours ? hours + '小时' : ''} ${mins}分钟`;
     },
   },
 };
