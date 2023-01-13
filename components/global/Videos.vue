@@ -59,7 +59,7 @@ export default {
 
   computed: {
     videoCount () {
-      return `${this.activeVideos.length} ${this.activeVideos.length > 1 ? 'Videos' : 'Video'}`;
+      return `${this.activeVideos.length} ${this.activeVideos.length > 1 ? this.$t('videos'): this.$t('video')}`;
     },
 
     videoTypes () {

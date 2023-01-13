@@ -2,14 +2,25 @@
   <div class="spacing">
     <div :class="$style.head">
       <select
-        v-if="seasons.length > 1"
+        v-if="seasons.length > 1&&this.$i18n.locale==='en'"
         v-model="activeSeason"
         @change="getEpisodes">
         <option
           v-for="season in seasons"
           :key="`season-${season.season}`"
           :value="season.season">
-          Season {{ season.season }}
+          Season {{  season.season }}
+        </option>
+      </select>
+      <select
+        v-if="seasons.length > 1&&this.$i18n.locale==='zh'"
+        v-model="activeSeason"
+        @change="getEpisodes">
+        <option
+          v-for="season in seasons"
+          :key="`season-${season.season}`"
+          :value="season.season">
+          第 {{  season.season }} 季
         </option>
       </select>
 
@@ -56,7 +67,7 @@ export default {
 
   computed: {
     episodeCount () {
-      return `${this.activeEpisodes.length} ${this.activeEpisodes.length > 1 ? 'Episodes' : 'Episode'}`;
+      return `${this.activeEpisodes.length} ${this.activeEpisodes.length > 1 ? this.$i18n.t('Episode.episodes') : this.$i18n.t('Episode.episode')}`
     },
 
     seasons () {
@@ -73,6 +84,7 @@ export default {
 
       return seasons;
     },
+
   },
 
   mounted () {
@@ -100,7 +112,7 @@ export default {
 </script>
 
 <style lang="scss" module>
-@import '~/assets/css/utilities/_variables.scss';
+@import '/assets/css/utilities/_variables.scss';
 
 .head {
   display: flex;

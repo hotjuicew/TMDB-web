@@ -35,7 +35,7 @@
         <ul class="nolist">
           <li v-if="person.known_for_department">
             <div :class="$style.label">
-              {{$t('knownFor')}}
+              {{$t('PersonInfo.knownFor')}}
             </div>
 
             <div :class="$style.value">
@@ -44,7 +44,7 @@
           </li>
           <li v-if="person.birthday">
             <div :class="$style.label">
-              {{$t('born')}}
+              {{$t('PersonInfo.born')}}
             </div>
 
             <div :class="$style.value">
@@ -54,7 +54,7 @@
           </li>
           <li v-if="person.place_of_birth">
             <div :class="$style.label">
-              {{$t('placeOfBirth')}}
+              {{$t('PersonInfo.placeOfBirth')}}
             </div>
 
             <div :class="$style.value">

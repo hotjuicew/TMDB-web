@@ -17,12 +17,20 @@ module.exports = {
   'overview':'概述',
   'videos':'视频',
   'photos':'图片',
-  'episodes':'情节',
-  'knownFor':'知名于',
-  'credits':'演出',
-  'born':'出生日期',
-  'placeOfBirth':'出生地',
+  'episodes':'剧集',
+  'credits':'经历',
+  'PersonInfo':{
+    'knownFor':'职业',
+    'born':'出生日期',
+    'placeOfBirth':'出生地',
+  },
+  'knownFor':'作品',
   'storyline':'故事线',
+
+  'Episode':{
+    'episodes':"集",
+    'episode':"集",
+  },
 
   'released':'上映',
   'runtime':'时长',
@@ -33,5 +41,32 @@ module.exports = {
   'status':'状态',
   'language':'语言',
   'production':'出品方',
+
+  'firstAired':'首播',
+  'creator':'导演',
+  'seasons':'季',
+  'network':'网络平台',
+
+  'cast':'演员阵容',
+  'moreLikeThis':'更多类似',
+
+  'season':'季',
+  'video':'视频',
+
+  "tvs": "电视剧",
+  "movies": "电影",
+  "people": "人物",
+  "backdrops": "背景图",
+  "posters": "海报",
+
+  'CreditsHistory':{
+    'department':'部门',
+    'media':'媒体',
+    'all':'全部',
+    'Acting':'出演',
+    'Production':'制片',
+    'as':'饰演',
+    'dr':'担任',
+  },
 
 }

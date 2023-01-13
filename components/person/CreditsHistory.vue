@@ -3,7 +3,7 @@
     <div :class="$style.head">
       <div :class="$style.filter">
         <label for="credits_category">
-          Department
+          {{ $t("CreditsHistory.department") }}
         </label>
 
         <select
@@ -12,21 +12,21 @@
           :disabled="!categories.length || categories.length === 1"
           @change="filterCredits">
           <option value="all">
-            All
+            {{ $t("CreditsHistory.all") }}
           </option>
 
           <option
             v-for="(category) in categories"
             :key="`credit-filter-${category.toLowerCase()}`"
             :value="category.toLowerCase()">
-            {{ category }}
+            {{ $t(`CreditsHistory.${category}`) }}
           </option>
         </select>
       </div>
 
       <div :class="$style.filter">
         <label for="credits_media">
-          Media
+          {{ $t('CreditsHistory.media') }}
         </label>
 
         <select
@@ -34,13 +34,13 @@
           v-model="active_media"
           @change="getCredits">
           <option value="combined_credits">
-            All
+            {{ $t('CreditsHistory.all') }}
           </option>
           <option value="movie_credits">
-            Movies
+            {{ $t('movies') }}
           </option>
           <option value="tv_credits">
-            TV Shows
+            {{ $t('tvs') }}
           </option>
         </select>
       </div>

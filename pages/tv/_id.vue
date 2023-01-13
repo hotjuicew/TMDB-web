@@ -32,20 +32,20 @@
     <template v-if="activeMenu === 'photos' && showImages">
       <Images
         v-if="item.images.backdrops.length"
-        title="Backdrops"
+        title="backdrops"
         type="backdrop"
         :images="item.images.backdrops" />
 
       <Images
         v-if="item.images.posters.length"
-        title="Posters"
+        title="posters"
         type="poster"
         :images="item.images.posters" />
     </template>
 
     <ListingCarousel
       v-if="recommended && recommended.results.length"
-      title="More Like This"
+      :title="title"
       :items="recommended" />
   </main>
 </template>
@@ -120,6 +120,9 @@ export default {
 
 
   computed: {
+    title() {
+      return this.$t('moreLikeThis');
+    },
     metaTitle () {
       if (this.item.status === 'Ended' && this.yearStart && this.yearEnd) {
         return `${this.name} (TV Series ${this.yearStart}-${this.yearEnd})`;

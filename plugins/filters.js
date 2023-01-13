@@ -19,16 +19,6 @@ Vue.filter('numberWithCommas', function (number) {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 });
 
-/**
- * Format number to have double digits
- */
-Vue.filter('numberWithDoubleDigits', function (number) {
-  if (number < 10) {
-    return `0${number}`;
-  }
-
-  return number;
-});
 
 /**
  * Format minutes into hours and mins

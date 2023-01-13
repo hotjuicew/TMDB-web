@@ -111,11 +111,11 @@ export default {
     },
     createMenu () {
       const menu = [];
-      if (this.movieItems) menu.push('Movies');
+      if (this.movieItems) menu.push('movies');
 
-      if (this.tvItems) menu.push('TVs');
+      if (this.tvItems) menu.push('tvs');
 
-      if (this.personItems) menu.push('People');
+      if (this.personItems) menu.push('people');
 
       this.menu = menu;
     },

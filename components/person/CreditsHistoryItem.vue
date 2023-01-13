@@ -57,9 +57,9 @@ export default {
       const job = this.credit.job;
 
       if (character) {
-        return `as ${character}`;
+        return this.$i18n.t('CreditsHistory.as')+` ${character}`;
       } else if (job) {
-        return `as ${job}`;
+        return this.$i18n.t('CreditsHistory.dr')+` ${job}`;
       } else {
         return false;
       }

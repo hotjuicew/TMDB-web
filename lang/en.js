@@ -17,13 +17,20 @@ module.exports = {
   'overview':'Overview',
   'videos':'Videos',
   'photos':'Photos',
-  'episodes':"Episodes",
-  'knownFor':'Known For',
   'credits':'Credits',
-  'born':'Born',
-  'placeOfBirth':'Place of Birth',
+  'PersonInfo':{
+    'episodes':"Episodes",
+    'knownFor':'Known For',
+    'born':'Born',
+    'placeOfBirth':'Place of Birth',
+  },
+  'knownFor':'Known For',
   'storyline':'Storyline',
 
+  'Episode':{
+    'episodes':"Episodes",
+    'episode':"Episode",
+  },
   'released':'Released',
   'runtime':'Runtime',
   'director':'Director',
@@ -38,6 +45,28 @@ module.exports = {
   'creator':'Creator',
   'seasons':'Seasons',
   'network':'Network',
+
+  'cast':'Cast',
+  'moreLikeThis':'More Like This',
+
+  'season':'Season',
+  'video':'Video',
+
+  "tvs": "TV Shows",
+  "movies": "Movies",
+  "people": "People",
+  "backdrops": "Backdrops",
+  "posters": "Posters",
+
+  'CreditsHistory':{
+    'department':'Department',
+    'media':'Media',
+    'all':'All',
+    'Acting':'Acting',
+    'Production':'Production',
+    'as':'as',
+    'dr':'as',
+  },
 
 
 }

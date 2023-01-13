@@ -14,7 +14,7 @@
     </div>
 
     <h2 :class="$style.name">
-      <strong>E{{ episode.episode_number | numberWithDoubleDigits }}</strong> {{ episode.name }}
+      <strong>{{episodeNumber}}</strong> {{ episode.name }}
     </h2>
 
     <div :class="$style.overview">
@@ -24,7 +24,7 @@
     <div
       v-if="episode.air_date"
       :class="$style.aired">
-      {{ episode.air_date | fullDate }}
+      {{episodeAirDate}}
     </div>
   </div>
 </template>
@@ -48,12 +48,28 @@ export default {
         return null;
       }
     },
+    episodeNumber(){
+      if (this.$i18n.locale==='zh' )return `第${this.episode.episode_number}集`
+      else return `E${this.episode.episode_number}`
+    },
+    episodeAirDate(){
+      const dateArray = this.episode.air_date.split('-');
+      if (this.$i18n.locale==='en' ){
+        const date = dateArray[2].substr(0, 1) === '0' ? dateArray[2].substr(1, 1) : dateArray[2];
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+        return `${date} ${months[dateArray[1] - 1]} ${dateArray[0]}`;
+      }
+      else {
+        return `${dateArray[0]}年 ${dateArray[1]}月 ${dateArray[2]}日`;
+      }
+    }
   },
 };
 </script>
 
 <style lang="scss" module>
-@import '~/assets/css/utilities/_variables.scss';
+@import '/assets/css/utilities/_variables.scss';
 
 .item {
   display: flex;
