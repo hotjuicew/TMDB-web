@@ -4,7 +4,7 @@
       <li>
         <nuxt-link
           exact
-          :to="{ path: indexRoutePath }"
+          :to="{ name: `index-${this.$i18n.locale}`}"
         >
           <svg t="1670584035422" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                p-id="2342" width="30" height="30">
@@ -16,7 +16,7 @@
       </li>
       <li>
         <nuxt-link
-          :to="{ path: movieRoutePath }"
+          :to="{ name: `movie-${this.$i18n.locale}` }"
         >
           <svg t="1670583104183" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                p-id="2703" width="32" height="32">
@@ -28,7 +28,7 @@
       </li>
       <li>
         <nuxt-link
-          :to="{path: tvRoutePath }"
+          :to="{ name: `tv-${this.$i18n.locale}` }"
         >
           <svg t="1670583161354" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                p-id="2906" width="30" height="30">
@@ -46,7 +46,7 @@
       </li>
       <li>
         <nuxt-link
-          :to="{ path: personRoutePath}"
+          :to="{ name: `person-${this.$i18n.locale}` }"
         >
           <svg t="1670582795571" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                p-id="3173" width="32" height="32">
@@ -91,34 +91,6 @@ export default {
     ...mapState("search", [
       "searchOpen"
     ]),
-    // eslint-disable-next-line vue/return-in-computed-property
-    indexRoutePath(){
-      switch (this.$i18n.locale){
-        case 'zh':return '/zh'
-        case 'en':return '/en'
-      }
-    },
-    // eslint-disable-next-line vue/return-in-computed-property
-    tvRoutePath(){
-      switch (this.$i18n.locale){
-        case 'zh':return '/zh/tv'
-        case 'en':return '/en/tv'
-      }
-    },
-    // eslint-disable-next-line vue/return-in-computed-property
-    movieRoutePath(){
-      switch (this.$i18n.locale){
-        case 'zh':return '/zh/movie'
-        case 'en':return '/en/movie'
-      }
-    },
-    // eslint-disable-next-line vue/return-in-computed-property
-    personRoutePath(){
-      switch (this.$i18n.locale){
-        case 'zh':return '/zh/person'
-        case 'en':return '/en/person'
-      }
-    },
   },
 
   methods: {
