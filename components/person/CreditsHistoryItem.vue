@@ -4,7 +4,7 @@
       {{ year ? year : '—' }}
     </td>
     <td>
-      <nuxt-link :to="{ name: `${media}-id`, params: { id: credit.id } }">
+      <nuxt-link :to="{ name: `${media}-id-${this.$i18n.locale}`, params: { id: credit.id } }">
         <strong>{{ name }}</strong>
 
         <span

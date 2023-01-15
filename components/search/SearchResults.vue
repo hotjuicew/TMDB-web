@@ -56,11 +56,15 @@ export default {
     },
   },
 
+  created() {
+    console.log('SearchResults created');
+  },
   mounted () {
     window.addEventListener('scroll', this.getScrollPosition);
   },
 
   beforeDestroy () {
+    console.log(11555);
     window.removeEventListener('scroll', this.getScrollPosition);
   },
 

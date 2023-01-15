@@ -2,10 +2,18 @@ export const state = () => ({
   searchOpen: false,
   fromPage: '/',
   placeholders:{
-    index:'Search for a movie, tv show or person...',
-    tv:'Search for a tv show...',
-    movie:'Search for a movie...',
-    person:'Search for a person...',
+   en:{
+     index:'Search for a movie, tv show or person...',
+     tv:'Search for a tv show...',
+     movie:'Search for a movie...',
+     person:'Search for a person...',
+   },
+    zh:{
+      index:'搜索电影、电视剧、影人...',
+      tv:'搜索电视剧...',
+      movie:'搜索电影...',
+      person:'搜索影人...',
+    }
   },
   searchType:'index',
 });

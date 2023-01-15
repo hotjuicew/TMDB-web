@@ -2,7 +2,7 @@
   <div class="credits-item">
     <nuxt-link
       class="credits-item__link"
-      :to="{ name: 'person-id', params: { id: person.id } }">
+      :to="{ name: `person-id-${this.$i18n.locale}`, params: { id: person.id } }">
       <div class="credits-item__img">
         <img
           v-if="poster"

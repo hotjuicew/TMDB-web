@@ -19,7 +19,12 @@ export default {
       required: true,
     },
   },
-
+  beforeRouteLeave() {
+    this.active=0
+  },
+  created() {
+    console.log(this.active,'this.active');
+  },
   data () {
     return {
       active: 0,
