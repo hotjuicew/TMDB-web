@@ -85,22 +85,22 @@
       </div>
     </div>
 
-<!--    <Modal-->
-<!--      v-if="modalVisible"-->
-<!--      :data="trailer"-->
-<!--      type="iframe"-->
-<!--      @close="closeModal" />-->
+    <Modal
+      v-if="modalVisible"
+      :data="trailer"
+      type="iframe"
+      @close="closeModal" />
     <div :class="$style.hook"></div>
   </div>
 </template>
 
 <script>
 import { name, stars, yearStart, cert, backdrop, trailer } from '~/mixins/Details';
-// import Modal from '~/components/Modal';
+import Modal from '~/components/global/Modal';
 
 export default {
   components: {
-    // Modal,
+    Modal,
   },
 
   mixins: [

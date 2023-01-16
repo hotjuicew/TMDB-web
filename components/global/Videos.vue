@@ -29,6 +29,13 @@
         :index="index"
         @openModal="openModal" />
     </div>
+    <Modal
+      v-if="modalVisible"
+      :data="videos"
+      type="iframe"
+      nav
+      :start-at="modalStartAt"
+      @close="closeModal" />
 
   </div>
 </template>
@@ -36,10 +43,11 @@
 <script>
 import { getYouTubeVideo } from '~/api';
 import VideosItem from '~/components/global/VideosItem';
+import Modal from '~/components/global/Modal';
 
 export default {
   components: {
-    VideosItem,
+    VideosItem,Modal,
   },
 
   props: {
@@ -53,7 +61,8 @@ export default {
     return {
       activeType: 'all',
       activeVideos: this.videos,
-
+      modalVisible: false,
+      modalStartAt: 0,
     };
   },
 
@@ -95,7 +104,15 @@ export default {
     filterVideos () {
       this.activeVideos = this.videos.filter(video => this.activeType === 'all' ? true : video.type === this.activeType);
     },
+    openModal (index) {
+      this.modalStartAt = index;
+      this.modalVisible = true;
+    },
 
+    closeModal () {
+      this.modalVisible = false;
+      this.modalStartAt = 0;
+    },
 
   },
 };
