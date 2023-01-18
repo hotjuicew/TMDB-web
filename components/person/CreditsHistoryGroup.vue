@@ -1,6 +1,6 @@
 <template>
-  <tr :class="$style.group">
-    <td :class="$style.row">
+  <tr >
+    <td >
       <table>
         <tbody>
         <CreditsHistoryItem
@@ -31,14 +31,5 @@ export default {
 };
 </script>
 
-<style lang="scss" module>
-@import '/assets/css/utilities/_variables.scss';
-
-.group:nth-child(odd) {
-  background-color: $secondary-color;
-}
-
-.row {
-  padding: 0;
-}
+<style>
 </style>

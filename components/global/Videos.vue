@@ -1,6 +1,6 @@
 <template>
   <div class="spacing">
-    <div :class="$style.head">
+    <div >
       <select
         v-if="videoTypes.length > 1"
         v-model="activeType"
@@ -16,12 +16,12 @@
         </option>
       </select>
 
-      <strong :class="$style.count">
+      <strong >
         {{ videoCount }}
       </strong>
     </div>
 
-    <div :class="$style.items">
+    <div >
       <VideosItem
         v-for="(video, index) in activeVideos"
         :key="`video-${video.id}`"
@@ -118,37 +118,5 @@ export default {
 };
 </script>
 
-<style lang="scss" module>
-@import '/assets/css/utilities/_variables.scss';
-
-.head {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1.5rem;
-
-  @media (min-width: $breakpoint-large) {
-    margin-bottom: 2rem;
-  }
-
-  select {
-    margin-right: 1rem;
-  }
-}
-
-.count {
-  font-size: 1.2rem;
-  color: $text-color-grey;
-  letter-spacing: $letter-spacing;
-
-  @media (min-width: $breakpoint-large) {
-    font-size: 1.4rem;
-  }
-}
-
-.items {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -1rem;
-  margin-left: -1rem;
-}
+<style>
 </style>

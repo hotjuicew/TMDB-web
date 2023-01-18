@@ -1,6 +1,6 @@
 <template>
-  <tr :class="$style.item">
-    <td :class="$style.year">
+  <tr >
+    <td >
       {{ year ? year : '—' }}
     </td>
     <td>
@@ -9,13 +9,13 @@
 
         <span
           v-if="episodes"
-          :class="$style.episodes">
+          >
           {{ episodes }}
         </span>
 
         <span
           v-if="role"
-          :class="$style.role">
+          >
           {{ role }}
         </span>
       </nuxt-link>
@@ -82,31 +82,5 @@ export default {
 };
 </script>
 
-<style lang="scss" module>
-@import '/assets/css/utilities/_variables.scss';
-
-.item {
-  font-size: 1.5rem;
-
-  @media (min-width: $breakpoint-large) {
-    font-size: 1.6rem;
-  }
-
-  td {
-    padding: 1rem 2rem;
-    border-bottom: 1px solid #141414;
-  }
-}
-
-.year {
-  width: 8rem;
-}
-
-.episodes {
-  color: #999;
-}
-
-.role {
-  color: rgba(255, 255, 255, 0.8);
-}
+<style>
 </style>

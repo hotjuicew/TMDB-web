@@ -182,14 +182,5 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import '../../assets/css/utilities/variables';
-
-.main {
-  padding-top: 6rem;
-
-  @media (min-width: $breakpoint-large) {
-    padding-top: 8rem;
-  }
-}
+<style>
 </style>

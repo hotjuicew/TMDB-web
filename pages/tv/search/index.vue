@@ -120,14 +120,5 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '/assets/css/utilities/_variables.scss';
-
-.page-search .main {
-  padding-top: 6rem;
-
-  @media (min-width: $breakpoint-large) {
-    padding-top: 8rem;
-  }
-}
+<style>
 </style>

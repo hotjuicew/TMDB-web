@@ -1,7 +1,7 @@
 <template>
   <div class="spacing">
-    <div :class="$style.head">
-      <div :class="$style.filter">
+    <div >
+      <div >
         <label for="credits_category">
           {{ $t("CreditsHistory.department") }}
         </label>
@@ -24,7 +24,7 @@
         </select>
       </div>
 
-      <div :class="$style.filter">
+      <div >
         <label for="credits_media">
           {{ $t('CreditsHistory.media') }}
         </label>
@@ -49,8 +49,8 @@
     <div
       v-for="category in active_credits"
       :key="`credits-${category.name.toLowerCase()}`"
-      :class="$style.category">
-      <h2 :class="$style.title">
+      >
+      <h2 >
         {{$t(`CreditsHistory.${category.name}`)}}
       </h2>
 
@@ -262,41 +262,5 @@ export default {
 };
 </script>
 
-<style lang="scss" module>
-@import '/assets/css/utilities/_variables.scss';
-
-.head {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1.5rem;
-}
-
-.filter {
-  margin-right: 3rem;
-
-  label {
-    margin-right: 1rem;
-    font-size: 1.2rem;
-    letter-spacing: $letter-spacing;
-
-    @media (min-width: $breakpoint-large) {
-      font-size: 1.4rem;
-    }
-  }
-}
-
-.category {
-  margin-bottom: 3rem;
-}
-
-.title {
-  margin-bottom: 1.5rem;
-  font-size: 1.8rem;
-  letter-spacing: $letter-spacing;
-
-  @media (min-width: $breakpoint-large) {
-    margin-bottom: 2rem;
-    font-size: 2.4rem;
-  }
-}
+<style>
 </style>

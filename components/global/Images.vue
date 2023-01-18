@@ -1,16 +1,16 @@
 <template>
   <div class="spacing">
-    <div :class="$style.head">
-      <h2 :class="$style.title">
+    <div >
+      <h2 >
         {{ $t(title) }}
       </h2>
 
-      <strong :class="$style.count">
+      <strong >
         {{ imagesCount }}
       </strong>
     </div>
 
-    <div :class="$style.items">
+    <div >
       <ImagesItem
         v-for="(image, index) in images"
         :key="`image-${index}`"
@@ -79,43 +79,6 @@ export default {
 };
 </script>
 
-<style lang="scss" module>
-@import '/assets/css/utilities/_variables.scss';
+<style>
 
-.head {
-  display: flex;
-  align-items: baseline;
-  margin-bottom: 1.5rem;
-
-  @media (min-width: $breakpoint-large) {
-    margin-bottom: 2rem;
-  }
-}
-
-.title {
-  font-size: 1.8rem;
-  letter-spacing: $letter-spacing;
-
-  @media (min-width: $breakpoint-large) {
-    font-size: 2.4rem;
-  }
-}
-
-.count {
-  margin-left: 1rem;
-  font-size: 1.2rem;
-  color: $text-color-grey;
-  letter-spacing: $letter-spacing;
-
-  @media (min-width: $breakpoint-large) {
-    font-size: 1.4rem;
-  }
-}
-
-.items {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -0.4rem;
-  margin-left: -0.4rem;
-}
 </style>

@@ -50,68 +50,6 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '~/assets/css/utilities/_variables.scss';
+<style>
 
-.credits-item {
-  margin-bottom: 2rem;
-  line-height: $base-line-height;
-}
-
-.credits-item__img {
-  position: relative;
-  height: 0;
-  padding-top: 150.27%;
-  overflow: hidden;
-  background-color: $secondary-color;
-  transition: transform 0.3s ease-in-out;
-
-  img,
-  span {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: scale(0.97);
-  }
-
-  span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  &.lazyloaded img {
-    transform: scale(1);
-  }
-}
-
-.credits-item__link:hover,
-.credits-item__link:focus {
-  .credits-item__img {
-    transform: scale(1.02);
-  }
-}
-
-.credits-item__name {
-  margin-top: 1rem;
-  font-size: 1.3rem;
-  letter-spacing: $letter-spacing;
-
-  @media (min-width: $breakpoint-large) {
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
-  }
-}
-
-.credits-item__character {
-  font-size: 1.2rem;
-  color: $text-color-grey;
-  letter-spacing: $letter-spacing;
-
-  @media (min-width: $breakpoint-large) {
-    font-size: 1.4rem;
-  }
-}
 </style>

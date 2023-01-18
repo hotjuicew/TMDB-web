@@ -1,5 +1,5 @@
 <template>
-  <nav :class="$style.nav">
+  <nav >
     <ul class="list">
       <li>
         <nuxt-link
@@ -115,92 +115,5 @@ export default {
 };
 </script>
 
-<style lang="scss" module>
-@import '/assets/css/utilities/_variables.scss';
-
-.nav {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 5;
-  height: 4.5rem;
-  //background-color: #000;
-  background-color: $base-bg;
-
-  @media (min-width: $breakpoint-large) {
-    top: 0;
-    right: auto;
-    width: 10rem;
-    height: 100%;
-    border-right: 1px solid $secondary-color;
-  }
-
-  ul {
-    display: flex;
-    height: 100%;
-
-    @media (min-width: $breakpoint-large) {
-      flex-direction: column;
-    }
-
-    li {
-      flex: 1 1 auto;
-      height: 100%;
-
-      @media (min-width: $breakpoint-large) {
-        flex: 0 1 auto;
-        height: 10rem;
-      }
-
-      select{
-        -moz-appearance: none;
-        -webkit-appearance: none;
-        appearance: none;
-        background-image: none;
-        @media (min-width: $breakpoint-large) {
-          margin-left: 2px;
-        }
-      }
-    }
-  }
-
-  button {
-    padding: 0;
-    margin: 0;
-    background: none;
-  }
-
-  a,
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    outline: 0;
-    transition: all 0.2s;
-
-    &:hover,
-    &:focus {
-      opacity: 0.8;
-    }
-  }
-}
-</style>
-
-<style lang="scss" scoped>
-@import '/assets/css/utilities/_variables.scss';
-
-a.nuxt-link-active {
-  &:hover,
-  &:focus {
-    opacity: 1;
-  }
-
-  svg path{
-    color: blue;
-    fill: $primary-color;
-  }
-}
+<style>
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="spacing">
-    <div :class="$style.head">
+    <div >
       <select
         v-if="seasons.length > 1&&this.$i18n.locale==='en'"
         v-model="activeSeason"
@@ -26,14 +26,14 @@
 
       <strong
         v-if="activeEpisodes"
-        :class="$style.count">
+        >
         {{ episodeCount }}
       </strong>
     </div>
 
     <div
       v-if="activeEpisodes"
-      :class="$style.items">
+      >
       <EpisodesItem
         v-for="episode in activeEpisodes"
         :key="`episode-${episode.id}`"
@@ -111,37 +111,5 @@ export default {
 };
 </script>
 
-<style lang="scss" module>
-@import '/assets/css/utilities/_variables.scss';
-
-.head {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1.5rem;
-
-  @media (min-width: $breakpoint-large) {
-    margin-bottom: 2rem;
-  }
-
-  select {
-    margin-right: 1rem;
-  }
-}
-
-.count {
-  font-size: 1.2rem;
-  color: $text-color-grey;
-  letter-spacing: $letter-spacing;
-
-  @media (min-width: $breakpoint-large) {
-    font-size: 1.4rem;
-  }
-}
-
-.items {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -0.4rem;
-  margin-left: -0.4rem;
-}
+<style>
 </style>

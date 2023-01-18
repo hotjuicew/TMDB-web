@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div :class="$style.hero">
-      <div :class="$style.backdrop">
+    <div >
+      <div >
         <div>
           <button
             v-if="trailer"
-            :class="$style.play"
+            
             type="button"
             aria-label="Play Trailer"
             @click="openModal">
@@ -17,17 +17,17 @@
             v-if="backdrop"
             v-lazyload="backdrop"
             class="lazyload"
-            :class="$style.image"
+            
             :alt="name">
         </div>
       </div>
 
-      <div :class="$style.pane">
+      <div >
         <transition
           appear
           name="hero">
           <div>
-            <h1 :class="$style.name">
+            <h1 >
               <template v-if="isSingle">
                 {{ name }}
               </template>
@@ -39,13 +39,13 @@
               </template>
             </h1>
 
-            <div :class="$style.meta">
+            <div >
               <div
                 v-if="stars || item.vote_count"
-                :class="$style.rating">
+                >
                 <div
                   v-if="stars"
-                  :class="$style.stars">
+                  >
                   <div :style="{ width: `${stars}%` }" />
                 </div>
 
@@ -57,7 +57,7 @@
                 </div>
               </div>
 
-              <div :class="$style.info">
+              <div >
                 <span v-if="item.number_of_seasons&&this.$i18n.locale==='en'">Season {{ item.number_of_seasons }}</span>
                 <span v-if="item.number_of_seasons&&this.$i18n.locale==='zh'"> 第 {{ item.number_of_seasons }} 季</span>
                 <span v-if="yearStart">{{ yearStart }}</span>
@@ -66,14 +66,14 @@
               </div>
             </div>
 
-            <div :class="$style.desc">
+            <div >
               {{ item.overview | truncate(200) }}
             </div>
 
             <button
               v-if="trailer"
               class="button button--icon"
-              :class="$style.trailer"
+              
               type="button"
               @click="openModal">
               <!-- eslint-disable-next-line -->
@@ -90,7 +90,7 @@
       :data="trailer"
       type="iframe"
       @close="closeModal" />
-    <div :class="$style.hook"></div>
+    <div ></div>
   </div>
 </template>
 
@@ -161,244 +161,7 @@ export default {
 };
 </script>
 
-<style lang="scss" module>
-@import '/assets/css/utilities/_variables.scss';
 
-.hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 35rem;
-  color: #999;
-  //background-color: #000;
-  background-color: $base-bg;
+<style>
 
-  @media (min-width: $breakpoint-xsmall) {
-    height: 50rem;
-  }
-
-  @media (min-width: $breakpoint-medium) {
-    position: relative;
-    display: block;
-    height: 0;
-    padding-bottom: 40%;
-  }
-}
-
-.backdrop {
-  position: relative;
-  display: flex;
-  flex: 1 1 auto;
-  min-height: 0;
-
-  @media (min-width: $breakpoint-medium) {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: block;
-    width: 71.1%;
-    height: 100%;
-  }
-
-  &::after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: block;
-    content: '';
-    background-image: linear-gradient(to top, rgba(24, 24, 24, 1) 0%, rgba(24, 24, 24, 0.1) 50%, rgba(24, 24, 24, 0.1) 100%);
-
-    @media (min-width: $breakpoint-medium) {
-      background-image: linear-gradient(to right, #181818 0, transparent 50%, transparent 100%);
-    }
-  }
-
-  > div {
-    width: 100%;
-
-    @media (min-width: $breakpoint-medium) {
-      display: inline;
-    }
-  }
-}
-
-.play {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 1;
-  padding: 0;
-  margin: 0;
-  background: none;
-  transform: translate(-50%, -50%);
-
-  @media (min-width: $breakpoint-medium) {
-    display: none;
-  }
-}
-
-.image {
-  display: inline-block;
-  max-width: none;
-  height: 100%;
-
-  @media (max-width: $breakpoint-medium - 1) {
-    width: 100%;
-    object-fit: cover;
-  }
-}
-
-.pane {
-  padding: 0 1.5rem 1.5rem;
-
-  @media (min-width: $breakpoint-small) {
-    padding: 0 4rem 4rem;
-  }
-
-  @media (min-width: $breakpoint-medium) {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    width: 55%;
-    height: 100%;
-    padding: 5rem 4rem;
-  }
-
-  @media (min-width: $breakpoint-large) {
-    padding-right: 5rem;
-    padding-left: 5rem;
-  }
-
-  @media (min-width: $breakpoint-xlarge) {
-    width: 43%;
-  }
-}
-
-.name {
-  margin: 0 0 1.4rem;
-  font-size: 2.8rem;
-  line-height: 1.1;
-  color: #fff;
-  letter-spacing: $letter-spacing;
-
-  @media (min-width: $breakpoint-small) {
-    margin-bottom: 1.8rem;
-  }
-
-  @media (min-width: $breakpoint-large) {
-    font-size: 2.4vw;
-  }
-}
-
-.meta {
-  font-size: 1.4rem;
-
-  @media (min-width: $breakpoint-small) {
-    display: flex;
-  }
-
-  @media (min-width: 1650px) {
-    font-size: 0.9vw;
-  }
-}
-
-.rating {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1.3rem;
-
-  @media (min-width: $breakpoint-small) {
-    margin: 0 1.2rem 0 0;
-  }
-}
-
-.stars {
-  width: 8.5rem;
-  height: 1.4rem;
-  margin-right: 1rem;
-  background-image: url('~assets/images/stars-red.png');
-  background-repeat: no-repeat;
-  background-size: auto 100%;
-
-  @media (min-width: $breakpoint-small) {
-    width: 10.3rem;
-    height: 1.7rem;
-  }
-
-  > div {
-    height: 100%;
-    background-image: url('~assets/images/stars-filled-red.png');
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-  }
-}
-
-.info {
-  display: flex;
-  align-items: center;
-
-  span {
-    margin-right: 0.9rem;
-  }
-}
-
-.desc {
-  display: block;
-  margin-top: 2.5rem;
-  font-size: 1.5rem;
-  color: #fff;
-
-  @media (max-width: $breakpoint-small - 1) {
-    display: none;
-  }
-
-  @media (min-width: 1650px) {
-    font-size: 0.9vw;
-  }
-}
-
-.trailer {
-  margin-top: 3rem;
-
-  @media (max-width: $breakpoint-medium - 1) {
-    display: none;
-  }
-
-  @media (min-width: 1650px) {
-    font-size: 0.9vw;
-  }
-}
-.hook{
-  margin-top: 5rem;
-  background: linear-gradient(90deg,#777 0,rgba(51,51,51,.5) 50%,#777);
-  height: 1px;
-}
-//.outer{
-//  margin-top: $head-nav;//为顶部的搜索栏留位置
-//}
-</style>
-
-<style lang="scss">
-.hero-enter-active,
-.hero-leave-active {
-  transition: transform .75s cubic-bezier(.4, .25, .3, 1), opacity .3s cubic-bezier(.4, .25, .3, 1);
-}
-
-.hero-enter,
-.hero-leave-to {
-  opacity: 0;
-  transform: translate3d(0, 2rem, 0);
-}
-
-.hero-enter-to,
-.hero-leave {
-  opacity: 1;
-  transform: translateZ(0);
-}
 </style>
