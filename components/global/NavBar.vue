@@ -152,6 +152,16 @@ export default {
         flex: 0 1 auto;
         height: 10rem;
       }
+
+      select{
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        background-image: none;
+        @media (min-width: $breakpoint-large) {
+          margin-left: 2px;
+        }
+      }
     }
   }
 
