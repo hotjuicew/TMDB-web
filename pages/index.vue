@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main >
     <HeroShow :item="featured"></HeroShow>
     <ListingCarousel
       v-if="trendingMovies && trendingMovies.results.length"
