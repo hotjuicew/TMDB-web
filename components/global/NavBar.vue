@@ -1,6 +1,6 @@
 <template>
   <nav >
-    <ul class="list " > 
+    <ul class="list text-red-500" >
       <li>
         <nuxt-link
           exact

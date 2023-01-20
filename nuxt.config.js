@@ -113,7 +113,13 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    // postcss: {
+    //   config: {
+    //     path: './postcss.config.js'
+    //   }
+    // }
+  },
   loaders: {
     cssModules: {
       camelCase: true,// CSS 模块中的类名会被转换为驼峰命名法
