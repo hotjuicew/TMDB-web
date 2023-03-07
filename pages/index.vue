@@ -29,7 +29,9 @@ export default {
     ListingCarousel,
     HeroShow
   },
-
+  mounted(){
+    document.querySelector('html').setAttribute('lang', this.$i18n.locale)
+  },
   async asyncData ({ error,app }) {
     try {
       const trendingMovies = await getTrending('movie',1,app.i18n.locale);
