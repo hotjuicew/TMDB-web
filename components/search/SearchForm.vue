@@ -115,7 +115,7 @@ export default {
 
       } else {
         this.$router.push({
-          path: this.fromPage
+          path: this.$route.path
         });
       }
     },
