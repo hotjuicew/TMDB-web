@@ -106,8 +106,9 @@ export default {
             query: { q: this.query }
           });
         } else {
+          console.log(this.$route.path,'this.$route.path');
           this.$router.push({
-            path: this.$route.path + "/search",
+            path: this.$route.path.replace(/\/(movie|tv)(\/.*)?$/, '/$1')+ "/search",
             query: { q: this.query }
           });
         }
@@ -154,6 +155,7 @@ export default {
   z-index: 10;
 
   @media (min-width: $breakpoint-large) {
+    top: 0;
     left: 10rem;
   }
 

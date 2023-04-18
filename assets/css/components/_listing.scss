@@ -25,6 +25,16 @@
 .listing__title {
   font-size: 1.8rem;
   letter-spacing: $letter-spacing;
+  @media (max-width: $breakpoint-large) {
+    display: none;
+  }
+  @media (min-width: $breakpoint-large) {
+    font-size: 2.4rem;
+  }
+}
+.listingca__title {
+  font-size: 1.8rem;
+  letter-spacing: $letter-spacing;
 
   @media (min-width: $breakpoint-large) {
     font-size: 2.4rem;

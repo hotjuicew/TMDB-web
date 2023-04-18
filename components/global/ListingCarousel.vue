@@ -5,7 +5,7 @@
       class="listing__head">
       <h2
         v-if="title"
-        class="listing__title">
+        class="listingca__title">
         {{ title }}
       </h2>
 
