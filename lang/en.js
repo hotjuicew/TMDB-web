@@ -17,6 +17,7 @@ module.exports = {
   'overview':'Overview',
   'videos':'Videos',
   'photos':'Photos',
+  'episodes':'Episodes',
   'credits':'Credits',
   'PersonInfo':{
     'episodes':"Episodes",

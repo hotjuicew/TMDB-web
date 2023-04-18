@@ -53,7 +53,7 @@
 
             <div
               :class="$style.value"
-              v-html="directors" />
+              v-html="directors(directors)" />
           </li>
           <li v-if="item.budget">
             <div :class="$style.label">
@@ -122,7 +122,7 @@
 
 <script>
 import { apiImgUrl } from '~/api';
-import { name, directors } from '~/mixins/Details';
+import { name } from '~/mixins/Details';
 // import ExternalLinks from '~/components/ExternalLinks';
 
 export default {
@@ -132,7 +132,6 @@ export default {
 
   mixins: [
     name,
-    directors,
   ],
 
   props: {
@@ -160,8 +159,15 @@ export default {
   },
 
   methods: {
+    directors () {
+      const people = this.item.credits.crew;
+
+      if (people) {
+        return people.filter(person => person.job === 'Director').map(person => `<a href="/${this.$i18n.locale}/person/${person.id}">${person.name}</a>`).join(', ');
+      }
+    },
     formatGenres (genres) {
-      return genres.map(genre => `<a href="/genre/${genre.id}/movie">${genre.name}</a>`).join(', ');
+      return genres.map(genre => `<a href="/${this.$i18n.locale}/genre/${genre.id}/movie">${genre.name}</a>`).join(', ');
     },
   },
 };

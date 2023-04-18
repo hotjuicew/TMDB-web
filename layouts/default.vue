@@ -1,6 +1,6 @@
 <template>
   <div>
-    <transition name="slidedown">
+    <transition name="fade">
       <SearchForm v-if="searchOpen"/>
     </transition>
    <NavBar></NavBar>

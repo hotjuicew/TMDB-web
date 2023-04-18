@@ -115,10 +115,11 @@ export default {
 .nav {
   position: fixed;
   right: 0;
-  bottom: 0;
+  top: 0;
   left: 0;
   z-index: 5;
   height: 4.5rem;
+  margin-bottom: 4.5rem;
   //background-color: #000;
   background-color: $base-bg;
 

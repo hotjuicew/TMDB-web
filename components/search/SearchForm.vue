@@ -148,7 +148,7 @@ export default {
 
 .form {
   position: fixed;
-  top: 0;
+  top: 4.5rem;
   right: 0;
   left: 0;
   z-index: 10;

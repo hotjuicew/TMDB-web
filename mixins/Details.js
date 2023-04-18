@@ -122,17 +122,17 @@ export const trailer = {
 /**
  * Directors
  */
-export const directors = {
-  computed: {
-    directors () {
-      const people = this.item.credits.crew;
-
-      if (people) {
-        return people.filter(person => person.job === 'Director').map(person => `<a href="/person/${person.id}">${person.name}</a>`).join(', ');
-      }
-    },
-  },
-};
+// export const directors = {
+//   computed: {
+//     directors () {
+//       const people = this.item.credits.crew;
+//
+//       if (people) {
+//         return people.filter(person => person.job === 'Director').map(person => `<a href="/person/${person.id}">${person.name}</a>`).join(', ');
+//       }
+//     },
+//   },
+// };
 
 /**
  * Creators

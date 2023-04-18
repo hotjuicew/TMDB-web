@@ -161,7 +161,7 @@ export default {
 
   methods: {
     formatGenres (genres) {
-      return genres.map(genre => `<a href="/genre/${genre.id}/tv">${genre.name}</a>`).join(', ');
+      return genres.map(genre => `<a href="/${this.$i18n.locale}/genre/${genre.id}/tv">${genre.name}</a>`).join(', ');
     },
 
     formatRunTime (times) {
