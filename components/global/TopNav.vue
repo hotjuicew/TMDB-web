@@ -45,14 +45,12 @@ export default {
   top: 4.5rem;
   right: 0;
   left: 0;
-  z-index: 5;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 4.5rem;
   padding: 0 5.5rem;
   background-color: #000;
-  margin-bottom: 4.5rem;
   @media (min-width: $breakpoint-large) {
     display: none;
   }

@@ -1,4 +1,9 @@
 module.exports = {
+  "index":"Home",
+  "movie":"Movies",
+  "tv":"TV Shows",
+
+
   "trendingMovies":"Trending Movies",
   "popularMovies": "Popular Movies",
   "topRatedMovies":"Top Rated Movies",

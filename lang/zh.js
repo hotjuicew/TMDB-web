@@ -1,4 +1,8 @@
 module.exports = {
+  "index":"主页",
+  "movie":"电影",
+  "tv":"电视",
+
   "trendingMovies":"趋势电影",
   "popularMovies": "流行电影",
   "topRatedMovies":"高分电影",
