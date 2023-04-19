@@ -1,10 +1,10 @@
 <template>
   <nav :class="$style.nav">
     <div class="burger-icon" @click="showMenu = !showMenu">
-      <a href="#" v-if="!showMenu">
+      <a v-if="!showMenu" href="#" >
         <svg  t="1681827940346" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8788" width="32" height="32"><path d="M133.310936 296.552327l757.206115 0c19.781623 0 35.950949-16.169326 35.950949-35.950949 0-19.781623-15.997312-35.950949-35.950949-35.950949L133.310936 224.650428c-19.781623 0-35.950949 16.169326-35.950949 35.950949C97.359987 280.383 113.529313 296.552327 133.310936 296.552327z" fill="#ffffff" p-id="8789"></path><path d="M890.51705 476.135058 133.310936 476.135058c-19.781623 0-35.950949 16.169326-35.950949 35.950949 0 19.781623 16.169326 35.950949 35.950949 35.950949l757.206115 0c19.781623 0 35.950949-16.169326 35.950949-35.950949C926.467999 492.304384 910.298673 476.135058 890.51705 476.135058z" fill="#ffffff" p-id="8790"></path><path d="M890.51705 727.447673 133.310936 727.447673c-19.781623 0-35.950949 15.997312-35.950949 35.950949s16.169326 35.950949 35.950949 35.950949l757.206115 0c19.781623 0 35.950949-15.997312 35.950949-35.950949S910.298673 727.447673 890.51705 727.447673z" fill="#ffffff" p-id="8791"></path></svg>
       </a>
-      <a href="#" v-else >
+      <a v-else href="#"  >
         <svg t="1681827990681" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2672" width="32" height="32"><path d="M557.311759 513.248864l265.280473-263.904314c12.54369-12.480043 12.607338-32.704421 0.127295-45.248112-12.512727-12.576374-32.704421-12.607338-45.248112-0.127295L512.127295 467.904421 249.088241 204.063755c-12.447359-12.480043-32.704421-12.54369-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.280796l262.975407 263.775299-265.151458 263.744335c-12.54369 12.480043-12.607338 32.704421-0.127295 45.248112 6.239161 6.271845 14.463432 9.440452 22.687703 9.440452 8.160624 0 16.319527-3.103239 22.560409-9.311437l265.216826-263.807983 265.440452 266.240344c6.239161 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.311759 513.248864z" fill="#ffffff" p-id="2673"></path></svg>
       </a>
     </div>
@@ -12,7 +12,7 @@
       <li>
         <nuxt-link
           exact
-          :to="{ name: `index-${this.$i18n.locale}`}"
+          :to="{ name: `index-${$i18n.locale}`}"
         >
           <svg t="1670584035422" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                p-id="2342" width="28" height="28">
@@ -25,7 +25,7 @@
       </li>
       <li>
         <nuxt-link
-          :to="{ name: `movie-${this.$i18n.locale}` }"
+          :to="{ name: `movie-${$i18n.locale}` }"
         >
           <svg t="1670583104183" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                p-id="2703" width="28" height="28">
@@ -38,7 +38,7 @@
       </li>
       <li>
         <nuxt-link
-          :to="{ name: `tv-${this.$i18n.locale}` }"
+          :to="{ name: `tv-${$i18n.locale}` }"
         >
           <svg t="1670583161354" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                p-id="2906" width="28" height="28">
@@ -103,7 +103,7 @@
             fill="#FFFFFF" p-id="2041"></path>
         </svg>
       </a>
-      <button>{{ this.selectedLanguage }}</button>
+      <button>{{ selectedLanguage }}</button>
     </div>
 
   </nav>
@@ -129,15 +129,12 @@ export default {
   methods: {
     toggleSearch() {
       if (this.$route.name !== "search") {
-        console.log("点击");
         this.$store.commit("search/toggleSearch");
       }
     },
     changeLanguage() {
       this.$i18n.locale === "en" ? this.$i18n.locale = "zh" : this.$i18n.locale = "en";
       const path = this.$route.path;
-      console.log(path, "pate");
-      console.log(path.replace(/^\/[^/]*/, ""));
       const query = this.$route.query;
       this.$router.replace({ path: `/${this.$i18n.locale}${path.replace(/^\/[^/]*/, "")}`, query });
       this.$store.commit("SET_LOCALE", this.$i18n.locale);
