@@ -183,6 +183,9 @@ export default {
     height: 0;
     padding-bottom: 40%;
   }
+  @media (max-width: $breakpoint-large) {
+    margin-top: 4.5rem;
+  }
 }
 
 .backdrop {
