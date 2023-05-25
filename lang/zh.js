@@ -2,6 +2,7 @@ module.exports = {
   "index":"主页",
   "movie":"电影",
   "tv":"电视",
+  "search":"搜索",
 
   "trendingMovies":"趋势电影",
   "popularMovies": "流行电影",

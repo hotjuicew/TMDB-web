@@ -71,6 +71,7 @@
               <ellipse cx="10.5" cy="9.8" rx="9.2" ry="9.1" />
             </g>
           </svg>
+          <span style="color:#fff"> {{$t('search')}}</span>
         </button>
       </li>
     </ul>

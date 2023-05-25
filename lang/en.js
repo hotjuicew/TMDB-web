@@ -2,7 +2,7 @@ module.exports = {
   "index":"Home",
   "movie":"Movies",
   "tv":"TV Shows",
-
+  "search":"Search",
 
   "trendingMovies":"Trending Movies",
   "popularMovies": "Popular Movies",
