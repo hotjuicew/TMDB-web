@@ -239,9 +239,7 @@ export default {
     button {
       color: $base-font-color;
       font-size: 1.2rem;
-      @media (max-width: $breakpoint-large) {
-        display: none;
-      }
+      
     }
 
   }
